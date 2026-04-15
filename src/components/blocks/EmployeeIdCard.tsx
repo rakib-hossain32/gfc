@@ -115,14 +115,14 @@ export function EmployeeIdCard({
 
     /* company name */
     ctx.fillStyle = "#ffffff";
-    ctx.font = "900 48px Arial Black, Arial, sans-serif";
+    ctx.font = "900 34px Arial Black, Arial, sans-serif";
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("GOLDEN FIRST CONTRACTING", W / 2, 72);
+    ctx.fillText("GOLDEN FIRST CONTRACTING", W / 2, 75);
 
     ctx.fillStyle = "rgba(201,162,77,0.9)";
-    ctx.font = "700 19px Arial, sans-serif";
-    ctx.letterSpacing = "3.5px";
-    ctx.fillText("INTEGRATED FACILITY MANAGEMENT", W / 2, 110);
+    ctx.font = "700 16px Arial, sans-serif";
+    ctx.letterSpacing = "2.5px";
+    ctx.fillText("INTEGRATED FACILITY MANAGEMENT", W / 2, 112);
     ctx.letterSpacing = "0px";
 
     /* ID CARD badge */
@@ -249,42 +249,42 @@ export function EmployeeIdCard({
       ctx.fillText(row.value, vx, y + 17);
     });
 
-    /* ── QR CODE — centered, fixed above footer ── */
+    /* ── QR CODE — anchored above footer, centered horizontally ── */
     const footerY = H - 55;
-    const qrSize  = 115;
-    const qrX     = (W - qrSize) / 2;
-    // card height = qrSize + 28(padding top/bottom) + 26(label area) = 184
-    // place so bottom of card = footerY - 16
-    const qrCardH = qrSize + 24 + 26;
-    const qrY     = footerY - 2 - qrCardH + 30; // top of QR image inside card
+    const qrSize  = 60;
+    const qrPad   = 6;
+    const qrLblH  = 18;
+    const qrCardW = qrSize + qrPad * 2;                  // 72px wide
+    const qrCardH = qrPad + qrSize + qrPad + qrLblH;     // 90px tall
+    const cardX   = (W - qrCardW) / 2;                   // (680-72)/2 = 304 — exact center
+    const cardY   = footerY - qrCardH - 10;              // anchored above footer
 
     const drawQR = (qrImage: HTMLImageElement | null) => {
-      const cardX = qrX - 14;
-      const cardY = qrY - 14;
-      const cardW = qrSize + 28;
-
       /* white card */
       ctx.fillStyle = "#ffffff";
       ctx.shadowColor = "rgba(0,0,0,0.12)"; ctx.shadowBlur = 16; ctx.shadowOffsetY = 4;
-      rr(ctx, cardX, cardY, cardW, qrCardH, 14); ctx.fill();
+      rr(ctx, cardX, cardY, qrCardW, qrCardH, 14); ctx.fill();
       ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
 
       ctx.strokeStyle = "rgba(0,108,53,0.2)"; ctx.lineWidth = 1;
-      rr(ctx, cardX, cardY, cardW, qrCardH, 14); ctx.stroke();
+      rr(ctx, cardX, cardY, qrCardW, qrCardH, 14); ctx.stroke();
+
+      const imgX = cardX + qrPad;  // QR image padded evenly inside the card
+      const imgY = cardY + qrPad;
 
       if (qrImage) {
-        ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize);
+        ctx.drawImage(qrImage, imgX, imgY, qrSize, qrSize);
       } else {
         ctx.fillStyle = "rgba(0,108,53,0.15)";
-        ctx.fillRect(qrX, qrY, qrSize, qrSize);
+        ctx.fillRect(imgX, imgY, qrSize, qrSize);
       }
 
-      /* label inside card, below QR */
+      /* "SCAN TO VERIFY" label — centered at W/2 */
       ctx.fillStyle = "rgba(0,108,53,0.6)";
-      ctx.font = "700 14px Arial, sans-serif";
-      ctx.letterSpacing = "1.5px";
+      ctx.font = "700 8px Arial, sans-serif";
+      ctx.letterSpacing = "1.2px";
       ctx.textAlign = "center"; ctx.textBaseline = "middle";
-      ctx.fillText("SCAN TO VERIFY", W / 2, qrY + qrSize + 13);
+      ctx.fillText("SCAN TO VERIFY", W / 2, imgY + qrSize + qrPad + qrLblH / 2);
       ctx.letterSpacing = "0px";
     };
 

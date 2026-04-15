@@ -7,11 +7,12 @@ import {
   User, Mail, Phone, Shield, Edit3, Save, X,
   Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2,
   Sparkles, Crown, Clock, Briefcase, ChevronRight,
-  Timer, Star, XCircle, CreditCard
+  Timer, Star, XCircle, CreditCard, ChevronLeft
 } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
 import { cn } from "@/src/lib/utils";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { EmployeeIdCard } from "@/src/components/blocks/EmployeeIdCard";
 
 interface UserProfile {
@@ -40,6 +41,7 @@ const fadeUp = {
 };
 
 export function ProfileClient() {
+  const router = useRouter();
   const { data: session, update } = useSession();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -135,68 +137,82 @@ export function ProfileClient() {
   }
 
   return (
-    <div className="min-h-screen bg-secondary relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 size-[600px] rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 size-[500px] rounded-full bg-highlight/5 blur-3xl" />
-      </div>
-
-      {/* Hero Banner */}
-      <div className="relative h-52 md:h-64 bg-linear-to-br from-accent via-accent/95 to-primary overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: "radial-linear(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }}
-        />
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-secondary to-transparent" />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.15, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="absolute top-6 right-12 text-white"
+    <div className="min-h-screen bg-secondary relative pt-24">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-20">
+        {/* Simple Back Button */}
+        <motion.button
+          whileHover={{ x: -4 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => router.back()}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-accent hover:bg-slate-50 transition-all text-xs font-bold mb-8 cursor-pointer"
         >
-          <Sparkles className="size-32" />
-        </motion.div>
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 pb-20 -mt-16">
+          <ChevronLeft className="size-4" />
+          Back
+        </motion.button>
         {/* Avatar + Name Row */}
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible" custom={0}
-          className="flex flex-col sm:flex-row items-start sm:items-end gap-5 mb-8"
+          className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8"
         >
-          <div className="relative">
-            <div className="size-28 md:size-32 rounded-3xl bg-linear-to-br from-primary to-primary/70 flex items-center justify-center text-white text-3xl font-black shadow-2xl shadow-primary/30 border-4 border-secondary ring-2 ring-primary/20">
+          <div className="relative group shrink-0">
+            {/* Simple Avatar */}
+            <div className="size-28 md:size-32 rounded-3xl bg-linear-to-br from-primary to-primary/90 flex items-center justify-center text-white text-3xl md:text-4xl font-black shadow-lg border-4 border-white overflow-hidden">
               {session?.user?.image ? (
-                <img src={session.user.image} alt="Avatar" className="size-full object-cover rounded-3xl" />
+                <img src={session.user.image} alt="Avatar" className="size-full object-cover transition-transform duration-500 group-hover:scale-110" />
               ) : initials}
             </div>
+            
+            {/* Role Badge */}
             {profile?.role === "admin" && (
-              <div className="absolute -top-2 -right-2 size-8 rounded-xl bg-highlight flex items-center justify-center shadow-lg">
-                <Crown className="size-4 text-white" />
-              </div>
+              <motion.div 
+                initial={{ scale: 0 }} 
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
+                className="absolute -top-2 -right-2 size-10 rounded-xl bg-highlight flex items-center justify-center shadow-lg border-3 border-white"
+              >
+                <Crown className="size-5 text-white" />
+              </motion.div>
             )}
           </div>
-          <div className="flex-1 pb-1">
-            <div className="flex items-center gap-2 mb-1">
+          
+          <div className="flex-1 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
               <span className={cn(
-                "text-[9px] font-black uppercase tracking-[0.25em] px-3 py-1 rounded-full",
+                "inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border",
                 profile?.role === "admin"
-                  ? "bg-highlight/15 text-highlight"
-                  : "bg-primary/10 text-primary"
+                  ? "bg-highlight/10 text-highlight border-highlight/20"
+                  : "bg-primary/10 text-primary border-primary/20"
               )}>
+                <div className="size-1.5 rounded-full bg-current" />
                 {profile?.role === "admin" ? "Administrator" : "Member"}
               </span>
+              <span className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border bg-green-50 text-green-700 border-green-200">
+                <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />
+                Active
+              </span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-black text-accent leading-tight">{profile?.name}</h1>
-            <p className="text-sm text-muted mt-0.5">{profile?.email}</p>
+            <h1 className="text-3xl md:text-4xl font-black text-accent tracking-tight leading-none mb-2">{profile?.name}</h1>
+            <p className="text-sm font-medium text-muted/70 flex items-center justify-center sm:justify-start gap-2 mb-4">
+              <Mail className="size-4" />
+              {profile?.email}
+            </p>
+            <p className="text-xs text-muted/50 flex items-center justify-center sm:justify-start gap-1.5">
+              <Clock className="size-3.5" />
+              Member since {memberSince}
+            </p>
           </div>
+          
           {!editMode && (
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <motion.div 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }}
+              className="shrink-0"
+            >
               <Button
                 onClick={() => setEditMode(true)}
-                className="rounded-2xl h-11 px-5 gap-2 text-[10px] font-black uppercase tracking-widest bg-accent hover:bg-accent/90 text-white shadow-lg"
+                className="rounded-xl h-11 px-6 gap-2 text-[10px] font-black uppercase tracking-wider bg-accent hover:bg-slate-900 text-white shadow-lg"
               >
-                <Edit3 className="size-3.5" /> Edit Profile
+                <Edit3 className="size-4" /> Edit Profile
               </Button>
             </motion.div>
           )}
