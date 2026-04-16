@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
               </p>
             </motion.div>
 
-            <div className="grid gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <div className="flex items-center gap-4 p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
                 <div className="size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary">
                   <Clock className="size-5" />
@@ -95,14 +95,14 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex justify-start sm:justify-center lg:justify-start">
               {/* <Link href="/contact">
                 <Button className="h-12 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-primary/20 group">
                   Partner With Us
                   <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link> */}
-              <Button asChild className="w-full md:w-auto h-14 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
+              <Button asChild className="w-full sm:w-auto h-14 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
             <Link href="/contact" className="flex items-center justify-center gap-2">
               Partner With Us <ArrowRight className="size-4 md:size-5" />
             </Link>

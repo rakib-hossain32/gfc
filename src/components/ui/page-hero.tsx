@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 interface TrustBadge {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
   label: string;
 }
@@ -108,7 +109,7 @@ export function PageHero({
               {breadcrumb && (
                 <nav className="flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-full">
                   <div className="px-3 py-1 bg-white rounded-full border border-slate-200 shadow-xs">
-                     <span className="text-[9px] font-black text-primary uppercase tracking-widest">DP</span>
+                     <span className="text-[9px] font-black text-primary uppercase tracking-widest">GFC</span>
                   </div>
                   <div className="flex items-center gap-3 pr-4">
                     {breadcrumb.map((item, i) => (
@@ -137,9 +138,9 @@ export function PageHero({
           <div className="space-y-6">
             <motion.h1 
               variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-black text-accent leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent leading-[1.15] tracking-tight"
             >
-              {title}  
+              {title} {" "}
               <span className="text-primary italic font-serif leading-none inline-block">
                  {highlight}
               </span>
@@ -148,7 +149,7 @@ export function PageHero({
             <motion.p 
               variants={itemVariants}
               className={cn(
-                "text-slate-500 text-base md:text-lg lg:text-xl leading-relaxed font-medium tracking-tight max-w-2xl",
+                "text-slate-500 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-medium tracking-tight max-w-2xl",
                 centered ? "mx-auto" : ""
               )}
             >

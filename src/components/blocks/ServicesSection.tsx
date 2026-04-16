@@ -23,6 +23,7 @@ import { SectionHeader } from "@/src/components/ui/section-header";
 
 import { useState, useEffect } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const iconMap: Record<string, any> = {
   Building2, 
   Zap, 

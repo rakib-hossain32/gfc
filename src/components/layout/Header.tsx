@@ -4,7 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Phone, Building2, Mail, MapPin, Facebook, Instagram, Linkedin, Globe, ChevronRight, User, Home, Shapes, Info, LogOut, LayoutDashboard, UserCog } from "lucide-react"
+import Image from "next/image"
+import { Phone, Building2, Mail, MapPin, Facebook, Instagram, Linkedin, Globe, ChevronRight, User, Home, Shapes, Info, LogOut, LayoutDashboard, UserCog } from "lucide-react"
 import { cn } from "@/src/lib/utils"
 import { Button } from "@/src/components/ui/button"
 import { useSettings } from "@/src/components/providers/SettingsProvider"
@@ -21,7 +22,6 @@ const navItems = [
 export function Header() {
   const { data: session } = useSession()
   const { settings } = useSettings()
-  const [isOpen, setIsOpen] = React.useState(false)
   const pathname = usePathname()
   const [scrolled, setScrolled] = React.useState(false)
   const [showUserMenu, setShowUserMenu] = React.useState(false)
@@ -93,12 +93,12 @@ export function Header() {
       <motion.header
         initial={false}
         animate={{
-          y: (scrolled && isDesktop) ? 16 : 0,
-          marginTop: (!scrolled && isDesktop) ? "2.75rem" : "0px",
+          y: (scrolled && isDesktop) ? 24 : 0,
+          marginTop: (!scrolled && isDesktop) ? "2.5rem" : "0px",
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1] max-w-[1500px] mx-auto",
+          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1] max-w-375 mx-auto",
           scrolled ? "px-4 md:px-8" : "px-0"
         )}
       >
@@ -106,18 +106,18 @@ export function Header() {
           initial={false}
           animate={{
             maxWidth: (scrolled && isDesktop) ? "80rem" : "100%",
-            paddingTop: scrolled ? (isDesktop ? 14 : 12) : (isDesktop ? 24 : 16),
-            paddingBottom: scrolled ? (isDesktop ? 14 : 12) : (isDesktop ? 24 : 16),
+            paddingTop: scrolled ? (isDesktop ? 10 : 10) : (isDesktop ? 20 : 14),
+            paddingBottom: scrolled ? (isDesktop ? 10 : 10) : (isDesktop ? 20 : 14),
             paddingLeft: scrolled ? (isDesktop ? 32 : 16) : (isDesktop ? 24 : 16),
             paddingRight: scrolled ? (isDesktop ? 32 : 16) : (isDesktop ? 24 : 16),
-            backgroundColor: scrolled ? "rgba(255, 255, 255, 0.9)" : "rgba(255, 255, 255, 0)",
-            backdropFilter: scrolled ? "blur(24px)" : "blur(0px)",
+            backgroundColor: scrolled ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0)",
+            backdropFilter: scrolled ? "blur(32px)" : "blur(0px)",
             borderRadius: (scrolled) ? "2.5rem" : "0px",
           }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className={cn(
             "container mx-auto relative will-change-[transform,opacity,backdrop-filter] ",
-            scrolled ? "border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]" : "border-transparent"
+            scrolled ? "border border-white/60 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)]" : "border-transparent"
           )}
         >
           <div className="flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between relative ">
@@ -127,7 +127,7 @@ export function Header() {
               <Link href="/" className="flex items-center gap-4 group relative z-10 w-fit text-left">
                 <div className={cn(
                   "bg-primary rounded-xl flex items-center justify-center text-white transition-all duration-500 relative overflow-hidden",
-                  scrolled ? "size-10 scale-95" : "size-12 shadow-[0_12px_24px_rgba(0,108,53,0.2)]"
+                  scrolled ? "size-10 scale-95" : "size-12 shadow-primary"
                 )}>
                   <svg viewBox="0 0 32 32" className={cn("transition-all duration-500 group-hover:scale-110", scrolled ? "size-6" : "size-8")} fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 6L8 11V24H12V16H20V24H24V11L16 6Z" fill="currentColor" fillOpacity="0.1" />
@@ -219,7 +219,7 @@ export function Header() {
                         >
                           <div className="size-8 rounded-full bg-primary flex items-center justify-center text-white font-black overflow-hidden shadow-sm">
                             {session.user?.image ? (
-                              <img src={session.user.image} alt="User" className="size-full object-cover" />
+                              <Image src={session.user.image} alt="User" width={32} height={32} className="size-full object-cover" />
                             ) : (
                               <span className="text-xs">{session.user?.name?.[0] || 'A'}</span>
                             )}
@@ -312,7 +312,7 @@ export function Header() {
                     >
                       <div className="size-7 rounded-xl bg-primary flex items-center justify-center text-white font-black overflow-hidden">
                         {session.user?.image ? (
-                          <img src={session.user.image} alt="User" className="size-full object-cover" />
+                          <Image src={session.user.image} alt="User" width={28} height={28} className="size-full object-cover" />
                         ) : (
                           <span className="text-[10px]">{session.user?.name?.[0] || 'A'}</span>
                         )}
@@ -385,12 +385,15 @@ export function Header() {
           </div>
         </motion.div>
 
-        {/* Bottom Nav Mobile */}
-        <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-lg">
+         {/* Bottom Nav Mobile */}
+        <div className="lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm">
           <motion.nav
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="bg-white/90 backdrop-blur-3xl border border-white/50 shadow-2xl rounded-4xl py-2 px-5 flex justify-between items-center"
+            className="bg-white/50 backdrop-blur-[10px] backdrop-saturate-280 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.12)] rounded-[1.75rem] py-1 px-2 flex justify-between items-center"
+            style={{
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            }}
           >
             {navItems.map((item) => {
               const isActive = pathname === item.href
@@ -400,17 +403,17 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "flex flex-col items-center gap-1 flex-1 py-1 transition-all",
+                    "flex flex-col items-center gap-0.5 flex-1 py-0.5 transition-all",
                     isActive ? "text-primary" : "text-accent/30 hover:text-accent/60"
                   )}
                 >
                   <div className={cn(
-                    "size-9 rounded-2xl flex items-center justify-center",
-                    isActive ? "bg-primary/10 text-primary scale-110" : "text-accent/40"
+                    "size-7 rounded-lg flex items-center justify-center transition-all",
+                    isActive ? "bg-primary/10 text-primary scale-105" : "text-accent/40"
                   )}>
-                    <Icon className="size-4" />
+                    <Icon className="size-3.5" />
                   </div>
-                  <span className={cn("text-[8px] font-black uppercase tracking-widest", isActive ? "opacity-100" : "opacity-40")}>
+                  <span className={cn("text-[6px] font-black uppercase tracking-wide", isActive ? "opacity-100" : "opacity-50")}>
                     {item.name}
                   </span>
                 </Link>

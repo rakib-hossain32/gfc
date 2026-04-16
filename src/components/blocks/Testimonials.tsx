@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 import { 
   Star, 
   Quote, 
-  Plus, 
   X, 
   MessageSquarePlus, 
   CheckCircle2,
@@ -31,6 +31,7 @@ export function Testimonials() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -107,7 +108,7 @@ export function Testimonials() {
       "py-16 md:py-24 bg-slate-50 relative overflow-hidden",
       isModalOpen ? "z-50" : "z-10"
     )}>
-      <div className="absolute top-0 left-0 w-full h-[500px] bg-linear-to-b from-white to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-125 bg-linear-to-b from-white to-transparent" />
       <div className="absolute top-[20%] right-[-10%] size-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
@@ -145,13 +146,13 @@ export function Testimonials() {
                   ))}
                 </div>
 
-                <p className="text-accent text-base sm:text-lg font-medium leading-relaxed mb-8 sm:mb-10 min-h-[120px]">
+                <p className="text-accent text-base sm:text-lg font-medium leading-relaxed mb-8 sm:mb-10 min-h-30">
                   &ldquo;{item.content}&rdquo;
                 </p>
 
                 <div className="flex items-center gap-4 pt-8 sm:pt-10 border-t border-slate-50">
                   <div className="relative size-12 sm:size-14 rounded-full overflow-hidden border-2 border-slate-100 group-hover:border-primary transition-colors duration-500">
-                    <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
+                    <Image src={item.avatar} alt={item.name} fill className="object-cover" />
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-black text-accent group-hover:text-primary transition-colors truncate">{item.name}</h4>
@@ -258,7 +259,7 @@ export function Testimonials() {
                               <Textarea 
                                 value={formData.content}
                                 onChange={(e) => setFormData({...formData, content: e.target.value})}
-                                placeholder="Share details about our performance..." required className="min-h-[140px] rounded-2xl border-slate-100 focus:ring-primary/20 p-4 font-bold" 
+                                placeholder="Share details about our performance..." required className="min-h-35 rounded-2xl border-slate-100 focus:ring-primary/20 p-4 font-bold" 
                               />
                            </div>
 

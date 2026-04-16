@@ -4,17 +4,17 @@ import { useState } from "react";
 import { useSettings } from "@/src/components/providers/SettingsProvider";
 import { motion, Variants } from "framer-motion";
 import {
-   ArrowLeft,
+   
    CheckCircle2,
    ShieldCheck,
    Clock,
-   ChevronRight,
+   
    Phone,
-   Mail,
+   
    Globe,
    Send
 } from "lucide-react";
-import Link from "next/link";
+
 import { Button } from "@/src/components/ui/button";
 import { SectionHeader } from "@/src/components/ui/section-header";
 import { Input } from "@/src/components/ui/input";
@@ -31,22 +31,7 @@ const features = [
    "Turn-key Project Completion"
 ];
 
-const containerVariants: Variants = {
-   hidden: { opacity: 0 },
-   visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-   }
-};
 
-const itemVariants: Variants = {
-   hidden: { opacity: 0, x: -20 },
-   visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-   }
-};
 
 interface ServiceDetailsClientProps {
    slug: string;
@@ -129,12 +114,12 @@ export function ServiceDetailsClient({ slug, formattedTitle }: ServiceDetailsCli
                         <div className="space-y-6 text-muted text-lg leading-relaxed">
                            <p>
                               Our <span className="text-accent font-bold capitalize">{formattedTitle}</span> service is built on a foundation of technical mastery and rigorous ISO-certified protocols.
-                              We don't just provide a service; we integrate a specialized framework designed to optimize your assets and ensure
+                              We don&apos;t just provide a service; we integrate a specialized framework designed to optimize your assets and ensure
                               seamless operational flow.
                            </p>
                            <p>
                               By deploying the latest industrial technologies, at Golden First Contracting, we provide the highest tier of service 
-                              demanded by Riyadh's premier corporations and residential estates.
+                              demanded by Riyadh&apos;s premier corporations and residential estates.
                            </p>
                         </div>
                      </div>
@@ -237,7 +222,7 @@ export function ServiceDetailsClient({ slug, formattedTitle }: ServiceDetailsCli
                                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                           placeholder={`Describe your ${formattedTitle.toLowerCase()} needs...`}
                                           required
-                                          className="min-h-[100px] rounded-2xl bg-slate-50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-4 font-medium text-sm"
+                                          className="min-h-25 rounded-2xl bg-slate-50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-4 font-medium text-sm"
                                        />
                                     </div>
 

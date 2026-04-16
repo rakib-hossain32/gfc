@@ -54,7 +54,7 @@ export function SectionHeader({
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className={cn(
-          "text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]",
+          "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight",
           light ? "text-white" : "text-accent"
         )}
       >
@@ -85,7 +85,7 @@ export function SectionHeader({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
-            "text-lg font-medium leading-relaxed",
+            "text-sm sm:text-base md:text-lg font-medium leading-relaxed",
             light ? "text-white/60" : "text-muted"
           )}
         >

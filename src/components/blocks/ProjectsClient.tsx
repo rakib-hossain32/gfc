@@ -1,23 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, Variants, AnimatePresence } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import {
-  Building2,
   MapPin,
   Layers,
   ArrowUpRight,
-  Zap,
   ChevronRight,
-  X,
-  Calendar,
-  CheckCircle2,
-  ChevronLeft,
   Loader2
 } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
-import Link from "next/link";
 import { PageHero } from "@/src/components/ui/page-hero";
 import { ProjectModal } from "./ProjectModal";
 
@@ -39,10 +31,11 @@ const cardVariants: Variants = {
 };
 
 export function ProjectsClient() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [dbProjects, setDbProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalLoading, setIsModalLoading] = useState(false);
 
   useEffect(() => {
@@ -63,7 +56,6 @@ export function ProjectsClient() {
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
-      setCurrentImageIndex(0);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -72,21 +64,7 @@ export function ProjectsClient() {
     };
   }, [selectedProject]);
 
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === selectedProject.gallery.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
 
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.gallery.length - 1 : prev - 1
-      );
-    }
-  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -120,7 +98,6 @@ export function ProjectsClient() {
                   onClick={() => {
                     setIsModalLoading(true);
                     setSelectedProject(project);
-                    setCurrentImageIndex(0);
                     setTimeout(() => setIsModalLoading(false), 600);
                   }}
                   variants={cardVariants}
