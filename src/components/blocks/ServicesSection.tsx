@@ -82,8 +82,7 @@ export function ServicesSection() {
       try {
         const response = await fetch('/api/services');
         const data = await response.json();
-        // Take first 4 categories for the grid
-        setServicesData(Array.isArray(data) ? data.slice(0, 4) : []);
+        setServicesData(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Failed to fetch services:", error);
       } finally {
@@ -92,6 +91,13 @@ export function ServicesSection() {
     }
     fetchServices();
   }, []);
+
+  const count = servicesData.length;
+  const gridCols =
+    count === 1 ? "grid-cols-1" :
+    count === 2 ? "grid-cols-1 sm:grid-cols-2" :
+    count === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" :
+    "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
 
   return (
     <section id="services" className="py-16 md:py-24 bg-white relative overflow-hidden">
@@ -114,12 +120,11 @@ export function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8"
+          className={`grid ${gridCols} gap-6 md:gap-8`}
         >
           {loading ? (
-            // Skeleton Loading
             [...Array(4)].map((_, i) => (
-              <div key={i} className="h-[400px] rounded-3xl bg-slate-50 animate-pulse border border-slate-100" />
+              <div key={i} className="h-100 rounded-3xl bg-slate-50 animate-pulse border border-slate-100" />
             ))
           ) : (
             servicesData.map((service, index) => {

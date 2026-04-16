@@ -2,7 +2,7 @@
 
 import { HomeHero } from "@/src/components/blocks/HomeHero";
 import { ServicesSection } from "@/src/components/blocks/ServicesSection";
-import { WhyChooseUs } from "@/src/components/blocks/WhyChooseUs";
+// import { WhyChooseUs } from "@/src/components/blocks/WhyChooseUs";
 import { AboutIntro } from "@/src/components/blocks/AboutIntro";
 import { IndustriesSection } from "@/src/components/blocks/IndustriesSection";
 import { WorkProcess } from "@/src/components/blocks/WorkProcess";
@@ -10,6 +10,7 @@ import { ProjectSnippet } from "@/src/components/blocks/ProjectSnippet";
 import { Testimonials } from "@/src/components/blocks/Testimonials";
 import { QuickRequestSection } from "@/src/components/blocks/QuickRequestSection";
 import { ContactSnippet } from "@/src/components/blocks/ContactSnippet";
+import WhyChooseUs from "@/src/components/blocks/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       <WhyChooseUs />
 
       {/* 5. Industries We Serve */}
-      <IndustriesSection />
+      {/* <IndustriesSection /> */}
 
       {/* 6. Work Process Section */}
       <WorkProcess />
