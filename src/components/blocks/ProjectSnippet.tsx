@@ -132,7 +132,7 @@ export function ProjectSnippet() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10"
           >
             {featuredProjects.map((project, index) => (
               <motion.div
@@ -147,7 +147,7 @@ export function ProjectSnippet() {
                 variants={cardVariants}
                 className="group relative cursor-pointer"
               >
-                <div className="relative aspect-16/11 rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-2xl shadow-slate-200 group-hover:shadow-primary/20 transition-all duration-700">
+                <div className="relative aspect-16/11 rounded-2xl md:rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-lg md:shadow-2xl shadow-slate-200 group-hover:shadow-primary/20 transition-all duration-700">
                   {/* Background Image */}
                   <motion.div layoutId={`home-image-${project.slug}`} className="absolute inset-0 size-full">
                     <Image
@@ -170,24 +170,24 @@ export function ProjectSnippet() {
                   </div>
 
                   {/* Main Content Area */}
-                  <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                    <div className="space-y-3 md:space-y-4 relative z-10">
+                  <div className="absolute inset-0 p-3 md:p-8 flex flex-col justify-end">
+                    <div className="space-y-1 md:space-y-4 relative z-10">
                       {/* Always Visible Category */}
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 md:w-8 h-0.5 bg-primary" />
-                        <span className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-[0.15em] md:tracking-[0.2em]">{project.category}</span>
+                      <div className="flex items-center gap-1 md:gap-2">
+                        <div className="w-4 md:w-8 h-0.5 bg-primary" />
+                        <span className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-[0.1em] md:tracking-[0.2em]">{project.category}</span>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-1 md:space-y-2">
                         <motion.h3
                           layoutId={`home-title-${project.slug}`}
-                          className="text-2xl md:text-3xl font-black text-white leading-tight group-hover:text-primary transition-colors duration-500"
+                          className="text-sm md:text-3xl font-black text-white leading-tight group-hover:text-primary transition-colors duration-500"
                         >
                           {project.title}
                         </motion.h3>
 
-                        {/* Revealable Content on Hover */}
-                        <div className="overflow-hidden">
+                        {/* Revealable Content on Hover — hidden on mobile */}
+                        <div className="overflow-hidden hidden md:block">
                           <div className="space-y-4 md:space-y-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
                             <div className="h-px w-full bg-white/10" />
 

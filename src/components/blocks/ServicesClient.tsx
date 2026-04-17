@@ -118,7 +118,7 @@ export function ServicesClient() {
                      initial="hidden"
                      whileInView="visible"
                      viewport={{ once: true, margin: "-50px" }}
-                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+                     className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8"
                    >
                      {group.items.map((item, i) => (
                        <motion.div
@@ -126,34 +126,36 @@ export function ServicesClient() {
                          variants={cardVariants}
                          className="group relative h-full"
                        >
-                         <div className="h-full bg-slate-50/50 hover:bg-white border border-slate-100 hover:border-primary/20 p-5 sm:p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] flex flex-col justify-between overflow-hidden relative">
+                         <div className="h-full bg-slate-50/50 hover:bg-white border border-slate-100 hover:border-primary/20 p-3 sm:p-6 md:p-8 rounded-2xl md:rounded-[2.5rem] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] flex flex-col justify-between overflow-hidden relative">
                             {/* Subtle Card Glow */}
                             <div className="absolute top-0 right-0 size-24 md:size-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-all duration-700 blur-2xl" />
 
-                            <div className="relative space-y-5 sm:space-y-6 md:space-y-8">
+                            <div className="relative space-y-3 sm:space-y-6 md:space-y-8">
                                {/* Icon Box */}
-                               <div className="size-12 sm:size-14 md:size-16 rounded-xl md:rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:rotate-45 transition-all duration-500">
-                                  <LucideIcon name={item.icon} className="size-5 sm:size-6 md:size-7 group-hover:-rotate-45 transition-transform" />
+                               <div className="size-9 sm:size-14 md:size-16 rounded-xl md:rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:rotate-45 transition-all duration-500">
+                                  <LucideIcon name={item.icon} className="size-4 sm:size-6 md:size-7 group-hover:-rotate-45 transition-transform" />
                                </div>
 
-                               <div className="space-y-3 sm:space-y-4">
+                               <div className="space-y-1.5 sm:space-y-4">
                                   <div className="flex items-center gap-2">
-                                     <span className="text-[9px] sm:text-[10px] font-black text-primary/40 uppercase tracking-wider sm:tracking-widest px-2 sm:px-3 py-0.5 sm:py-1 border border-primary/10 rounded-full">
+                                     <span className="text-[8px] sm:text-[10px] font-black text-primary/40 uppercase tracking-wider px-1.5 sm:px-3 py-0.5 border border-primary/10 rounded-full">
                                         {item.tag}
                                      </span>
                                   </div>
-                                  <h3 className="text-lg sm:text-xl md:text-2xl font-black text-accent group-hover:text-primary transition-colors leading-tight">
+                                  <h3 className="text-xs sm:text-xl md:text-2xl font-black text-accent group-hover:text-primary transition-colors leading-tight">
                                      {item.name}
                                   </h3>
-                                  <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                                  <p className="text-slate-500 text-[11px] sm:text-sm leading-relaxed font-medium hidden sm:block">
                                      {item.desc}
                                   </p>
                                </div>
                             </div>
 
-                            <div className="pt-6 sm:pt-8 md:pt-10 flex items-center justify-between">
-                               <Link href={`/services/${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-accent hover:text-primary transition-colors group/link">
-                                  Request Specialist <ChevronRight className="size-3.5 sm:size-4 group-hover/link:translate-x-1 transition-transform" />
+                            <div className="pt-3 sm:pt-8 md:pt-10 flex items-center justify-between">
+                               <Link href={`/services/${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center gap-1 sm:gap-3 text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-accent hover:text-primary transition-colors group/link">
+                                  <span className="hidden sm:inline">Request Specialist</span>
+                                  <span className="sm:hidden">View</span>
+                                  <ChevronRight className="size-3 sm:size-4 group-hover/link:translate-x-1 transition-transform" />
                                </Link>
                             </div>
                          </div>

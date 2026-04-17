@@ -96,9 +96,9 @@ export function ServicesSection() {
   const count = servicesData.length;
   const gridCols =
     count === 1 ? "grid-cols-1" :
-    count === 2 ? "grid-cols-1 sm:grid-cols-2" :
-    count === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" :
-    "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
+    count === 2 ? "grid-cols-2" :
+    count === 3 ? "grid-cols-2 lg:grid-cols-3" :
+    "grid-cols-2 xl:grid-cols-4";
 
   return (
     <section id="services" className="py-16 md:py-24 bg-white relative overflow-hidden">
@@ -139,45 +139,41 @@ export function ServicesSection() {
                   variants={cardVariants}
                   className="group relative h-full"
                 >
-                  {/* Card Container */}
-                  <div className="h-full bg-slate-50/50 hover:bg-white border border-slate-100 hover:border-primary/20 p-6 md:p-8 pt-10 md:pt-12 rounded-4xl md:rounded-3xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex flex-col justify-between overflow-hidden">
+                  <div className="h-full bg-slate-50/50 hover:bg-white border border-slate-100 hover:border-primary/20 p-5 md:p-8 rounded-2xl md:rounded-3xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex flex-col justify-between overflow-hidden">
                     
                     {/* Background Accent Circle */}
                     <div className="absolute top-0 right-0 size-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700 blur-2xl" />
 
-                    <div className="relative space-y-6 md:space-y-8">
-                      {/* Icon with Ring */}
-                      <div className="relative size-14 md:size-16">
-                        <div className="absolute inset-0 bg-primary/10 rounded-2xl group-hover:rotate-45 transition-transform duration-500" />
+                    <div className="relative space-y-4 md:space-y-8">
+                      {/* Icon */}
+                      <div className="relative size-11 md:size-16">
+                        <div className="absolute inset-0 bg-primary/10 rounded-xl md:rounded-2xl group-hover:rotate-45 transition-transform duration-500" />
                         <div className="absolute inset-0 flex items-center justify-center text-primary">
-                          <IconComponent className="size-6 md:size-8" />
+                          <IconComponent className="size-5 md:size-8" />
                         </div>
                       </div>
 
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[9px] md:text-[10px] font-bold text-primary uppercase tracking-widest px-2 py-0.5 bg-primary/10 rounded-full">
-                            {service.badge}
-                          </span>
-                        </div>
-                        <h3 className="text-xl md:text-2xl font-black text-accent group-hover:text-primary transition-colors">
+                      <div className="space-y-2 md:space-y-4">
+                        <span className="text-[9px] md:text-[10px] font-bold text-primary uppercase tracking-widest px-2 py-0.5 bg-primary/10 rounded-full inline-block">
+                          {service.badge}
+                        </span>
+                        <h3 className="text-base md:text-2xl font-black text-accent group-hover:text-primary transition-colors leading-tight">
                           {service.category}
                         </h3>
-                        <p className="text-muted text-xs md:text-sm leading-relaxed font-medium">
+                        <p className="text-muted text-xs md:text-sm leading-relaxed font-medium line-clamp-3">
                           {service.description}
                         </p>
                       </div>
                     </div>
 
-                    <div className="pt-8 md:pt-10 flex items-center justify-between mt-auto">
+                    <div className="pt-5 md:pt-10 flex items-center justify-between mt-auto">
                       <Link 
                         href={link}
-                        className="flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-accent hover:text-primary transition-colors group/link"
+                        className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-accent hover:text-primary transition-colors group/link"
                       >
-                        Explore Service 
-                        <ChevronRight className="size-3 md:size-4 group-hover/link:translate-x-1 transition-transform" />
+                        View <ChevronRight className="size-3 md:size-4 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
-                      <span className="text-3xl md:text-4xl font-black text-slate-100 group-hover:text-primary/5 transition-colors select-none">
+                      <span className="text-2xl md:text-4xl font-black text-slate-100 group-hover:text-primary/5 transition-colors select-none">
                         0{index + 1}
                       </span>
                     </div>
