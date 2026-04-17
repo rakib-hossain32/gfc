@@ -20,9 +20,9 @@ import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 
 const stats = [
-  { label: "Operating Since", value: "2014", icon: History },
-  { label: "Completed Projects", value: "1.2k+", icon: Trophy },
-  { label: "Specialized Staff", value: "250+", icon: Users },
+  { label: "Operating Since", value: "2025", icon: History },
+  { label: "Completed Projects", value: "N/A", icon: Trophy },
+  { label: "Specialized Staff", value: "N/A", icon: Users },
   { label: "Safety Standards", value: "Certified", icon: ShieldCheck },
 ];
 

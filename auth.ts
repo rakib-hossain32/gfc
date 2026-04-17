@@ -62,7 +62,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role || "user";
+        token.role = (user as { role?: string }).role || "user";
       }
       return token;
     },
@@ -78,8 +78,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const isAdminPage = nextUrl.pathname.startsWith("/admin");
       
       if (isAdminPage) {
-        if (isLoggedIn) return true;
-        return false; // Redirect to login
+        if (isLoggedIn && (auth?.user as { role?: string })?.role === "admin") return true;
+        if (isLoggedIn) return Response.redirect(new URL("/", nextUrl)); // logged in but not admin → home
+        return false; // not logged in → login page
       }
       return true;
     },

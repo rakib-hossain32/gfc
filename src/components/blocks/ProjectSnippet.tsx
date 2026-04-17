@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, Variants, AnimatePresence } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,13 +11,6 @@ import {
   Building2,
   MapPin,
   Layers,
-  X,
-  Calendar,
-  CheckCircle2,
-  Zap,
-  ChevronRight,
-  ChevronLeft,
-  Loader2
 } from "lucide-react";
 import { SectionHeader } from "@/src/components/ui/section-header";
 import { ProjectModal } from "./ProjectModal";
@@ -41,10 +34,11 @@ const cardVariants: Variants = {
 };
 
 export function ProjectSnippet() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [dbProjects, setDbProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedProject, setSelectedProject] = useState<any | null>(null)
   const [isModalLoading, setIsModalLoading] = useState(false);
 
   useEffect(() => {
@@ -68,7 +62,7 @@ export function ProjectSnippet() {
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
-      setCurrentImageIndex(0);
+     
     } else {
       document.body.style.overflow = "unset";
     }
@@ -76,22 +70,6 @@ export function ProjectSnippet() {
       document.body.style.overflow = "unset";
     };
   }, [selectedProject]);
-
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === selectedProject.gallery.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.gallery.length - 1 : prev - 1
-      );
-    }
-  };
 
   return (
     <section id="portfolio" className="py-16 md:py-24 bg-white relative overflow-hidden">
@@ -141,7 +119,7 @@ export function ProjectSnippet() {
                 onClick={() => {
                   setIsModalLoading(true);
                   setSelectedProject(project);
-                  setCurrentImageIndex(0);
+                 
                   setTimeout(() => setIsModalLoading(false), 600);
                 }}
                 variants={cardVariants}
@@ -175,7 +153,7 @@ export function ProjectSnippet() {
                       {/* Always Visible Category */}
                       <div className="flex items-center gap-1 md:gap-2">
                         <div className="w-4 md:w-8 h-0.5 bg-primary" />
-                        <span className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-[0.1em] md:tracking-[0.2em]">{project.category}</span>
+                        <span className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-widest md:tracking-[0.2em]">{project.category}</span>
                       </div>
 
                       <div className="space-y-1 md:space-y-2">
@@ -227,11 +205,11 @@ export function ProjectSnippet() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex md:hidden justify-center mt-12"
+          className="flex md:hidden justify-center mt-10"
         >
-          <Button asChild className="w-full h-16 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300 shadow-xl shadow-accent/10 group">
-            <Link href="/projects" className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-widest">
-              Explore All Projects <Plus className="size-5" />
+          <Button asChild className="h-11 px-8 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300 shadow-lg shadow-accent/10 group text-xs font-bold uppercase tracking-widest">
+            <Link href="/projects" className="flex items-center gap-2">
+              Explore All Projects <Plus className="size-4" />
             </Link>
           </Button>
         </motion.div>

@@ -212,7 +212,7 @@ export function ContactClient() {
                         <Input
                           {...form.register("name")}
                           placeholder="Jassim Al-Kuwari"
-                          className="h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
+                          className="h-11 md:h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
                         />
                         {form.formState.errors.name && <p className="text-primary text-[10px] font-bold uppercase">{form.formState.errors.name.message}</p>}
                       </div>
@@ -240,7 +240,7 @@ export function ContactClient() {
                       <Input
                         {...form.register("email")}
                         placeholder="corporate@domain.qa"
-                        className="h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
+                        className="h-11 md:h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
                       />
                       {form.formState.errors.email && <p className="text-primary text-[10px] font-bold uppercase">{form.formState.errors.email.message}</p>}
                     </div>
@@ -250,7 +250,7 @@ export function ContactClient() {
                       <Input
                         {...form.register("subject")}
                         placeholder="E.g. Facility Management, Manpower..."
-                        className="h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
+                        className="h-11 md:h-14 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all font-medium"
                       />
                     </div>
 
@@ -259,12 +259,12 @@ export function ContactClient() {
                       <Textarea
                         {...form.register("message")}
                         placeholder="Describe your operational requirements..."
-                        className="min-h-[160px] rounded-4xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-6 font-medium"
+                        className="min-h-40 rounded-4xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-6 font-medium"
                       />
                       {form.formState.errors.message && <p className="text-primary text-[10px] font-bold uppercase">{form.formState.errors.message.message}</p>}
                     </div>
 
-                    <Button disabled={submitting || submitted} type="submit" size="lg" className="w-full h-16 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
+                    <Button disabled={submitting || submitted} type="submit" size="lg" className="w-full h-11 md:h-16 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
                       <span className="flex items-center justify-center gap-3 font-bold uppercase tracking-[0.2em] text-xs">
                         {submitted ? "Briefing Received" : submitting ? "Authorizing..." : "Authorize Dispatch"}
                         {!submitted && !submitting && <Send className="size-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />}
@@ -304,7 +304,7 @@ export function ContactClient() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="h-[500px] rounded-[3rem] overflow-hidden border-8 border-white shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000 relative group"
+            className="h-125 rounded-[3rem] overflow-hidden border-8 border-white shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000 relative group"
           >
             <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
             <iframe

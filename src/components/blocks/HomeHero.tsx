@@ -120,14 +120,14 @@ export function HomeHero() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Link href="/contact" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-primary/20 group">
+                <Button className="w-full sm:w-auto h-10 sm:h-14 px-7 sm:px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-primary/20 group">
                   Initiate Project
                   <ArrowRight className="ml-2 size-4 sm:size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               
               <Link href="/projects" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-full border-2 border-accent/20 text-accent hover:bg-accent hover:text-white font-bold text-sm uppercase tracking-wider transition-all">
+                <Button variant="outline" className="w-full sm:w-auto h-10 sm:h-14 px-7 sm:px-10 rounded-full border-2 border-accent/20 text-accent hover:bg-accent hover:text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all">
                   The Portfolio
                 </Button>
               </Link>

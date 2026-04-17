@@ -226,7 +226,7 @@ export function ServiceDetailsClient({ slug, formattedTitle }: ServiceDetailsCli
                                        />
                                     </div>
 
-                                    <Button disabled={submitting} type="submit" size="lg" className="w-full h-14 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
+                                    <Button disabled={submitting} type="submit" size="lg" className="w-full h-11 md:h-14 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
                                        <span className="flex items-center justify-center gap-3 font-bold uppercase tracking-[0.2em] text-xs">
                                           {submitting ? "Processing..." : "Initialize Quote"}
                                           {!submitting && <Send className="size-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />}

@@ -202,7 +202,7 @@ export function ServicesSection() {
               <p className="text-xs md:text-sm text-muted">Averaging 24/7 support reliability across all sectors.</p>
             </div>
           </div>
-          <Button asChild className="w-full md:w-auto h-14 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
+          <Button asChild className="w-full md:w-auto h-11 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300 text-xs">
             <Link href="/services" className="flex items-center justify-center gap-2">
               Browse All Capabilities <ArrowRight className="size-4 md:size-5" />
             </Link>

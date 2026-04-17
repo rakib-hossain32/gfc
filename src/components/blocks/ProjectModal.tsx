@@ -185,7 +185,7 @@ export function ProjectModal({ project, isOpen, onClose, isLoading }: ProjectMod
                    </div>
 
                    <div className="p-6 sm:p-8 bg-slate-50 border-t border-slate-100 shrink-0">
-                      <Button asChild className="w-full h-14 rounded-2xl bg-accent hover:bg-primary shadow-xl shadow-accent/10 transition-all font-black uppercase tracking-[0.2em] text-[10px]">
+                      <Button asChild className="w-full h-11 rounded-2xl bg-accent hover:bg-primary shadow-xl shadow-accent/10 transition-all font-black uppercase tracking-[0.2em] text-[10px]">
                          <Link href="/contact" className="gap-2">Request Technical Briefing <Zap className="size-4" /></Link>
                       </Button>
                    </div>

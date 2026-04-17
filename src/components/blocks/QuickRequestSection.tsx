@@ -193,7 +193,7 @@ export function QuickRequestSection() {
                          <Input 
                             value={formData.name}
                             onChange={(e) => setFormData({...formData, name: e.target.value})}
-                            placeholder="E.g. Jassim Al-Kuwari" required className="h-14 rounded-xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all text-sm font-medium" 
+                            placeholder="E.g. Jassim Al-Kuwari" required className="h-11 md:h-14 rounded-xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all text-sm font-medium" 
                           />
                        </div>
                        <div className="space-y-2">
@@ -214,7 +214,7 @@ export function QuickRequestSection() {
                             type="email"
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            placeholder="name@company.com" required className="h-14 rounded-xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all text-sm font-medium" 
+                            placeholder="name@company.com" required className="h-11 md:h-14 rounded-xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all text-sm font-medium" 
                           />
                     </div>
 
@@ -224,7 +224,7 @@ export function QuickRequestSection() {
                           <select 
                             value={formData.sector}
                             onChange={(e) => setFormData({...formData, sector: e.target.value})}
-                            className="w-full h-14 px-4 rounded-xl bg-slate-50/50 border border-slate-100 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all appearance-none cursor-pointer"
+                            className="w-full h-11 md:h-14 px-4 rounded-xl bg-slate-50/50 border border-slate-100 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all appearance-none cursor-pointer"
                           >
                               <option value="" disabled>Select a required service...</option>
                               {Object.entries(SERVICE_CATEGORIES).map(([category, services]) => (
@@ -247,11 +247,11 @@ export function QuickRequestSection() {
                        <Textarea 
                           value={formData.message}
                           onChange={(e) => setFormData({...formData, message: e.target.value})}
-                          placeholder="Describe your operational requirements..." required className="min-h-[120px] rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-4 text-sm font-medium" 
+                          placeholder="Describe your operational requirements..." required className="min-h-30 rounded-2xl bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/20 transition-all resize-none p-4 text-sm font-medium" 
                         />
                     </div>
 
-                    <Button disabled={loading || submitted} type="submit" className="w-full h-16 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
+                    <Button disabled={loading || submitted} type="submit" className="w-full h-11 md:h-16 rounded-full bg-accent text-white hover:bg-primary transition-all duration-500 shadow-xl shadow-accent/10 group/btn">
                        <span className="flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-xs">
                           {submitted ? "Briefing Received" : loading ? "Authorizing..." : "Initialize Consultation"} 
                           {!submitted && !loading && <Send className="size-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />}

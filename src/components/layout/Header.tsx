@@ -240,14 +240,14 @@ export function Header() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                                className="fixed inset-0 z-9998"
                                 onClick={() => setShowUserMenu(false)}
                               />
                               <motion.div
                                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                                className="absolute right-0 top-[calc(100%+12px)] w-60 bg-white rounded-4xl border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-3 z-60"
+                                className="absolute right-0 top-[calc(100%+12px)] w-60 bg-white rounded-4xl border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-3 z-9999"
                               >
                                 <div className="px-4 py-3 border-b border-slate-50 mb-2">
                                   <p className="text-[9px] font-black uppercase text-accent/40 tracking-[0.2em] mb-1">Admin Session</p>
@@ -350,13 +350,21 @@ export function Header() {
 
                     <AnimatePresence>
                       {showMobileMenu && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute right-0 top-[calc(100%+8px)] w-56 bg-white rounded-3xl border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.15)] p-2.5 z-60"
-                        >
+                        <>
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-9998"
+                            onClick={() => setShowMobileMenu(false)}
+                          />
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute right-0 top-[calc(100%+8px)] w-56 bg-white rounded-3xl border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.15)] p-2.5 z-9999"
+                          >
                           <div className="px-3 py-2 mb-1.5 border-b border-slate-50">
                             <p className="text-[9px] font-black uppercase text-accent/30 tracking-[0.2em]">Admin Session</p>
                             <p className="text-[11px] font-black text-accent truncate mt-0.5">{session.user?.name}</p>
@@ -384,6 +392,7 @@ export function Header() {
                             </button>
                           </div>
                         </motion.div>
+                        </>
                       )}
                     </AnimatePresence>
                   </div>

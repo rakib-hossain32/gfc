@@ -102,7 +102,7 @@ export default function WhyChooseUs() {
                   <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link> */}
-              <Button asChild className="w-full sm:w-auto h-14 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
+              <Button asChild className="w-full sm:w-auto h-11 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
             <Link href="/contact" className="flex items-center justify-center gap-2">
               Partner With Us <ArrowRight className="size-4 md:size-5" />
             </Link>

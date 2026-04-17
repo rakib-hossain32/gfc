@@ -116,7 +116,7 @@ export default function CareersPage() {
         <div className="container px-4 mx-auto relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
              <h2 className="text-4xl font-black text-accent uppercase tracking-tighter italic">Why Join <span className="text-primary italic">Our Mission?</span></h2>
-             <p className="text-slate-500 font-medium leading-relaxed">We don't just offer jobs; we offer a seat at the table of Saudi Arabia's infrastructure evolution.</p>
+             <p className="text-slate-500 font-medium leading-relaxed">We don&apos;t just offer jobs; we offer a seat at the table of Saudi Arabia&apos;s infrastructure evolution.</p>
           </div>
 
           <motion.div 
@@ -188,7 +188,7 @@ export default function CareersPage() {
                       <h3 className="text-3xl font-black text-white uppercase tracking-tighter italic">Application Logged.</h3>
                       <p className="text-white/60 font-medium italic">Our Talent Acquisition team will review your profile shortly.</p>
                     </div>
-                    <Button onClick={() => setSubmitted(false)} variant="outline" className="text-white border-white/20 hover:bg-white/10 uppercase font-black text-[10px] tracking-widest h-14 px-10 rounded-2xl">Submit Another</Button>
+                    <Button onClick={() => setSubmitted(false)} variant="outline" className="text-white border-white/20 hover:bg-white/10 uppercase font-black text-[10px] tracking-widest h-11 md:h-14 px-8 md:px-10 rounded-2xl">Submit Another</Button>
                   </motion.div>
                 ) : (
                   <>
@@ -205,7 +205,7 @@ export default function CareersPage() {
                              required
                              value={formData.name}
                              onChange={(e) => setFormData({...formData, name: e.target.value})}
-                             className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all placeholder:text-white/20"
+                             className="w-full h-11 md:h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all placeholder:text-white/20"
                              placeholder="Riyadh Candidate"
                            />
                         </div>
@@ -216,7 +216,7 @@ export default function CareersPage() {
                              type="email"
                              value={formData.email}
                              onChange={(e) => setFormData({...formData, email: e.target.value})}
-                             className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all placeholder:text-white/20"
+                             className="w-full h-11 md:h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all placeholder:text-white/20"
                              placeholder="email@example.com"
                            />
                         </div>
@@ -237,7 +237,7 @@ export default function CareersPage() {
                              required
                              value={formData.position}
                              onChange={(e) => setFormData({...formData, position: e.target.value})}
-                             className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all appearance-none"
+                             className="w-full h-11 md:h-14 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm text-white focus:bg-white/10 focus:border-primary/50 outline-hidden transition-all appearance-none"
                            >
                               <option value="" className="bg-accent">Select Department</option>
                               <option value="Maintenance" className="bg-accent">Maintenance</option>
@@ -263,7 +263,7 @@ export default function CareersPage() {
                       <Button 
                         type="submit" 
                         disabled={loading}
-                        className="w-full h-16 rounded-3xl bg-primary hover:bg-white hover:text-primary text-white font-black uppercase tracking-[0.3em] text-[10px] shadow-2xl shadow-primary/30 transition-all"
+                        className="w-full h-11 md:h-16 rounded-3xl bg-primary hover:bg-white hover:text-primary text-white font-black uppercase tracking-[0.3em] text-[10px] shadow-2xl shadow-primary/30 transition-all"
                       >
                         {loading ? <Loader2 className="size-5 animate-spin" /> : (
                           <span className="flex items-center gap-3">
