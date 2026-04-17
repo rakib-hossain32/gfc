@@ -179,7 +179,7 @@ export function ContactClient() {
               <div className="pt-10 border-t border-slate-100 flex items-center gap-10 grayscale opacity-40">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="size-5" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">ISO Certified</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">Quality Certified</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="size-5" />

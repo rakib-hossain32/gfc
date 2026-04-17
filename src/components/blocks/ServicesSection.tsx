@@ -202,7 +202,7 @@ export function ServicesSection() {
                <Clock className="size-8 md:size-10 text-accent/20" />
             </div>
             <div>
-              <p className="font-bold text-accent text-base md:text-lg">ISO Certified Standards</p>
+              <p className="font-bold text-accent text-base md:text-lg">Certified Quality Standards</p>
               <p className="text-xs md:text-sm text-muted">Averaging 24/7 support reliability across all sectors.</p>
             </div>
           </div>

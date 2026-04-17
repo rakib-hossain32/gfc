@@ -23,7 +23,7 @@ const stats = [
   { label: "Operating Since", value: "2014", icon: History },
   { label: "Completed Projects", value: "1.2k+", icon: Trophy },
   { label: "Specialized Staff", value: "250+", icon: Users },
-  { label: "Safety Standards", value: "ISO", icon: ShieldCheck },
+  { label: "Safety Standards", value: "Certified", icon: ShieldCheck },
 ];
 
 const values = [
@@ -215,7 +215,7 @@ export function AboutClient() {
          <div className="flex flex-wrap items-center justify-center gap-12 grayscale opacity-30">
             <div className="flex items-center gap-2">
                <ShieldCheck className="size-6 text-accent" />
-               <span className="text-xs font-bold font-sans">ISO 9001:2015</span>
+               <span className="text-xs font-bold font-sans">Quality Certified</span>
             </div>
             <div className="flex items-center gap-2">
                <Globe className="size-6 text-accent" />

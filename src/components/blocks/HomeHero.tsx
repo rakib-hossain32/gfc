@@ -51,7 +51,7 @@ export function HomeHero() {
               >
                 <div className="h-px w-8 sm:w-12 bg-primary group-hover:w-16 transition-all duration-500" />
                 <span className="text-primary font-black tracking-[0.3em] sm:tracking-[0.5em] uppercase text-[9px] sm:text-[10px]">
-                  Established 2014 • Saudi Arabia
+                  Established 2025 • Saudi Arabia
                 </span>
               </motion.div>
 

@@ -57,7 +57,7 @@ export function PageHero({
   watermark,
   breadcrumb,
   trustBadges = [
-    { icon: ShieldCheck, label: "ISO 9001:2015" },
+    { icon: ShieldCheck, label: "QUALITY ASSURED" },
     { icon: Globe, label: "GCC STANDARDS" },
     { icon: Clock, label: "24/7 OPERATIONS" },
   ],

@@ -175,7 +175,7 @@ export function ProjectModal({ project, isOpen, onClose, isLoading }: ProjectMod
                       <div className="space-y-4">
                          <h4 className="text-[10px] font-black uppercase tracking-widest text-accent border-b border-slate-100 pb-4">Operational Performance</h4>
                          <div className="grid grid-cols-1 gap-3">
-                            {["ISO Certified Maintenance", "24/7 Priority Support", "Master Technical Personnel", "Sustainable Resource Optimization"].map((item, i) => (
+                            {["Certified Quality Maintenance", "24/7 Priority Support", "Master Technical Personnel", "Sustainable Resource Optimization"].map((item, i) => (
                                <div key={i} className="flex items-center gap-3 text-xs font-bold text-slate-500">
                                   <div className="size-1.5 rounded-full bg-primary" /> {item}
                                </div>

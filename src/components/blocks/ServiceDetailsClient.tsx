@@ -25,7 +25,7 @@ import React from "react";
 const features = [
    "Licensed Regional Professionals",
    "24/7 Rapid Response Unit",
-   "ISO Standard Quality Control",
+   "Certified Quality Control",
    "Strategic Resource Planning",
    "Advanced Safety Compliance",
    "Turn-key Project Completion"
@@ -113,7 +113,7 @@ export function ServiceDetailsClient({ slug, formattedTitle }: ServiceDetailsCli
                         />
                         <div className="space-y-6 text-muted text-lg leading-relaxed">
                            <p>
-                              Our <span className="text-accent font-bold capitalize">{formattedTitle}</span> service is built on a foundation of technical mastery and rigorous ISO-certified protocols.
+                              Our <span className="text-accent font-bold capitalize">{formattedTitle}</span> service is built on a foundation of technical mastery and rigorous certified quality protocols.
                               We don&apos;t just provide a service; we integrate a specialized framework designed to optimize your assets and ensure
                               seamless operational flow.
                            </p>
@@ -146,7 +146,7 @@ export function ServiceDetailsClient({ slug, formattedTitle }: ServiceDetailsCli
                      <div className="flex flex-wrap items-center gap-12 grayscale opacity-30 pt-8">
                         <div className="flex items-center gap-2">
                            <ShieldCheck className="size-6 text-accent" />
-                           <span className="text-[10px] font-black uppercase tracking-widest text-accent">ISO 9001</span>
+                           <span className="text-[10px] font-black uppercase tracking-widest text-accent">Quality Assured</span>
                         </div>
                         <div className="flex items-center gap-2">
                            <Globe className="size-6 text-accent" />

@@ -19,7 +19,7 @@ import { SectionHeader } from "@/src/components/ui/section-header";
 
 const benefits = [
   { icon: Clock, text: "60-Minute Rapid Response", sub: "Guaranteed priority for corporate clients." },
-  { icon: ShieldCheck, text: "ISO Certified Standards", sub: "Rigorous quality control on every task." },
+  { icon: ShieldCheck, text: "Certified Quality Standards", sub: "Rigorous quality control on every task." },
   { icon: Headphones, text: "24/7 Dedicated Support", sub: "Always available for emergency needs." },
   { icon: Globe, text: "GCC Region Reliability", sub: "Consistent service across Saudi Arabia & beyond." },
 ];

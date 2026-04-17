@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { Phone, Building2, Mail, MapPin, Facebook, Instagram, Linkedin, Globe, ChevronRight, User, Home, Shapes, Info, LogOut, LayoutDashboard, UserCog } from "lucide-react"
+import { Phone, Building2, Mail, MapPin, Facebook, Instagram, Linkedin, Globe, ChevronRight, User, Home, Shapes, Info, LogOut, LayoutDashboard,  } from "lucide-react"
 import { cn } from "@/src/lib/utils"
 import { Button } from "@/src/components/ui/button"
 import { useSettings } from "@/src/components/providers/SettingsProvider"
@@ -185,7 +185,7 @@ export function Header() {
               <div className="hidden lg:flex items-center gap-3 xl:gap-5">
 
                 {/* Profile/Login Section */}
-                <div className="relative">
+                <div className="relative z-60">
                   <AnimatePresence mode="wait">
                     {!session ? (
                       <motion.div
@@ -202,9 +202,10 @@ export function Header() {
                           {!scrolled && <span>Login</span>}
                         </Link>
                       </motion.div>
-                    ) : (
+                    ) : isAdmin ? (
+                      /* Admin: dropdown with panel + sign out */
                       <motion.div
-                        key="user-profile"
+                        key="admin-profile"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.8 }}
@@ -227,25 +228,32 @@ export function Header() {
                           {!scrolled && (
                             <div className="flex flex-col items-start">
                               <span className="text-[10px] font-black text-accent uppercase leading-none">{session.user?.name?.split(' ')[0]}</span>
-                              <span className="text-[8px] font-black text-primary uppercase mt-1 tracking-wider opacity-60">Authorized</span>
+                              <span className="text-[8px] font-black text-primary uppercase mt-1 tracking-wider opacity-60">Admin</span>
                             </div>
                           )}
                         </button>
 
-                        <AnimatePresence>
+                        <AnimatePresence mode="popLayout">
                           {showUserMenu && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                              className="absolute right-0 top-[calc(100%+12px)] w-60 bg-white rounded-4xl border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-3 z-100"
-                            >
-                              <div className="px-4 py-3 border-b border-slate-50 mb-2">
-                                <p className="text-[9px] font-black uppercase text-accent/40 tracking-[0.2em] mb-1">Session Active</p>
-                                <p className="text-[11px] font-black text-accent truncate">{session.user?.email}</p>
-                              </div>
-                              <div className="space-y-1">
-                                {isAdmin ? (
+                            <>
+                              <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                                onClick={() => setShowUserMenu(false)}
+                              />
+                              <motion.div
+                                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                                className="absolute right-0 top-[calc(100%+12px)] w-60 bg-white rounded-4xl border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-3 z-60"
+                              >
+                                <div className="px-4 py-3 border-b border-slate-50 mb-2">
+                                  <p className="text-[9px] font-black uppercase text-accent/40 tracking-[0.2em] mb-1">Admin Session</p>
+                                  <p className="text-[11px] font-black text-accent truncate">{session.user?.email}</p>
+                                </div>
+                                <div className="space-y-1">
                                   <Link
                                     href="/admin"
                                     className="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-accent group"
@@ -256,31 +264,50 @@ export function Header() {
                                     </div>
                                     <span className="text-[10px] font-black uppercase tracking-widest">Admin Panel</span>
                                   </Link>
-                                ) : (
-                                  <Link
-                                    href="/profile"
-                                    className="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-accent group"
-                                    onClick={() => setShowUserMenu(false)}
+                                  <button
+                                    onClick={() => signOut()}
+                                    className="w-full flex items-center gap-3 p-3 rounded-2xl hover:bg-red-50 text-red-500 group"
                                   >
-                                    <div className="size-8 rounded-xl bg-slate-100 flex items-center justify-center text-accent/40 group-hover:bg-primary group-hover:text-white transition-all">
-                                      <UserCog className="size-4" />
+                                    <div className="size-8 rounded-xl bg-red-100/50 flex items-center justify-center text-red-600/60 group-hover:bg-red-500 group-hover:text-white transition-all">
+                                      <LogOut className="size-4" />
                                     </div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest">My Profile</span>
-                                  </Link>
-                                )}
-                                <button
-                                  onClick={() => signOut()}
-                                  className="w-full flex items-center gap-3 p-3 rounded-2xl hover:bg-red-50 text-red-500 group"
-                                >
-                                  <div className="size-8 rounded-xl bg-red-100/50 flex items-center justify-center text-red-600/60 group-hover:bg-red-500 group-hover:text-white transition-all">
-                                    <LogOut className="size-4" />
-                                  </div>
-                                  <span className="text-[10px] font-black uppercase tracking-widest">Sign Out</span>
-                                </button>
-                              </div>
-                            </motion.div>
+                                    <span className="text-[10px] font-black uppercase tracking-widest">Sign Out</span>
+                                  </button>
+                                </div>
+                              </motion.div>
+                            </>
                           )}
                         </AnimatePresence>
+                      </motion.div>
+                    ) : (
+                      /* Regular user: direct link to profile, no dropdown */
+                      <motion.div
+                        key="user-profile"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                      >
+                        <Link
+                          href="/profile"
+                          className={cn(
+                            "flex items-center gap-2 border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300",
+                            scrolled ? "size-11 rounded-full" : "px-2 pr-4 h-11 rounded-full"
+                          )}
+                        >
+                          <div className="size-8 rounded-full bg-primary flex items-center justify-center text-white font-black overflow-hidden shadow-sm">
+                            {session.user?.image ? (
+                              <Image src={session.user.image} alt="User" width={32} height={32} className="size-full object-cover" />
+                            ) : (
+                              <span className="text-xs">{session.user?.name?.[0] || 'U'}</span>
+                            )}
+                          </div>
+                          {!scrolled && (
+                            <div className="flex flex-col items-start">
+                              <span className="text-[10px] font-black text-accent uppercase leading-none">{session.user?.name?.split(' ')[0]}</span>
+                              <span className="text-[8px] font-black text-primary uppercase mt-1 tracking-wider opacity-60">Profile</span>
+                            </div>
+                          )}
+                        </Link>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -301,7 +328,8 @@ export function Header() {
                       <User className="size-5 text-accent" />
                     </Link>
                   </Button>
-                ) : (
+                ) : isAdmin ? (
+                  /* Admin: dropdown */
                   <div className="relative">
                     <button
                       onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -327,39 +355,24 @@ export function Header() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute right-0 top-[calc(100%+8px)] w-56 bg-white rounded-3xl border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.15)] p-2.5 z-100"
+                          className="absolute right-0 top-[calc(100%+8px)] w-56 bg-white rounded-3xl border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.15)] p-2.5 z-60"
                         >
                           <div className="px-3 py-2 mb-1.5 border-b border-slate-50">
-                            <p className="text-[9px] font-black uppercase text-accent/30 tracking-[0.2em]">Signed in as</p>
+                            <p className="text-[9px] font-black uppercase text-accent/30 tracking-[0.2em]">Admin Session</p>
                             <p className="text-[11px] font-black text-accent truncate mt-0.5">{session.user?.name}</p>
                             <p className="text-[9px] font-medium text-accent/40 truncate">{session.user?.email}</p>
                           </div>
-
                           <div className="space-y-0.5">
-                            {isAdmin ? (
-                              <Link
-                                href="/admin"
-                                className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-slate-50 text-accent group"
-                                onClick={() => setShowMobileMenu(false)}
-                              >
-                                <div className="size-7 rounded-xl bg-slate-100 flex items-center justify-center text-accent/40 group-hover:bg-primary group-hover:text-white transition-all">
-                                  <LayoutDashboard className="size-3.5" />
-                                </div>
-                                <span className="text-[10px] font-black uppercase tracking-widest">Admin Panel</span>
-                              </Link>
-                            ) : (
-                              <Link
-                                href="/profile"
-                                className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-slate-50 text-accent group"
-                                onClick={() => setShowMobileMenu(false)}
-                              >
-                                <div className="size-7 rounded-xl bg-slate-100 flex items-center justify-center text-accent/40 group-hover:bg-primary group-hover:text-white transition-all">
-                                  <UserCog className="size-3.5" />
-                                </div>
-                                <span className="text-[10px] font-black uppercase tracking-widest">My Profile</span>
-                              </Link>
-                            )}
-
+                            <Link
+                              href="/admin"
+                              className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-slate-50 text-accent group"
+                              onClick={() => setShowMobileMenu(false)}
+                            >
+                              <div className="size-7 rounded-xl bg-slate-100 flex items-center justify-center text-accent/40 group-hover:bg-primary group-hover:text-white transition-all">
+                                <LayoutDashboard className="size-3.5" />
+                              </div>
+                              <span className="text-[10px] font-black uppercase tracking-widest">Admin Panel</span>
+                            </Link>
                             <button
                               onClick={() => { signOut(); setShowMobileMenu(false) }}
                               className="w-full flex items-center gap-3 p-2.5 rounded-2xl hover:bg-red-50 text-red-500 group"
@@ -374,6 +387,20 @@ export function Header() {
                       )}
                     </AnimatePresence>
                   </div>
+                ) : (
+                  /* Regular user: direct link to profile */
+                  <Link
+                    href="/profile"
+                    className="size-10 rounded-2xl flex items-center justify-center border border-primary/30 bg-primary/5 active:scale-90"
+                  >
+                    <div className="size-7 rounded-xl bg-primary flex items-center justify-center text-white font-black overflow-hidden">
+                      {session.user?.image ? (
+                        <Image src={session.user.image} alt="User" width={28} height={28} className="size-full object-cover" />
+                      ) : (
+                        <span className="text-[10px]">{session.user?.name?.[0] || 'U'}</span>
+                      )}
+                    </div>
+                  </Link>
                 )}
 
                 <a href={`tel:${settings.phone}`} className="size-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary active:scale-90">
@@ -411,9 +438,9 @@ export function Header() {
                     "size-7 rounded-lg flex items-center justify-center transition-all",
                     isActive ? "bg-primary/10 text-primary scale-105" : "text-accent/40"
                   )}>
-                    <Icon className="size-3.5" />
+                    <Icon className="size-5" />
                   </div>
-                  <span className={cn("text-[6px] font-black uppercase tracking-wide", isActive ? "opacity-100" : "opacity-50")}>
+                  <span className={cn("text-[8.5px] font-black uppercase tracking-wide", isActive ? "opacity-100" : "opacity-50")}>
                     {item.name}
                   </span>
                 </Link>

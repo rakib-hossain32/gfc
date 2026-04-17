@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
 import {
-  User, Mail, Phone, MapPin, Briefcase, FileText,
+  User,  Briefcase, FileText,
   ChevronRight, ChevronLeft, CheckCircle2, Loader2,
-  Globe, Calendar, Star, Wrench, AlertCircle, ArrowLeft,
-  Building2, ClipboardList, UserCheck
+  AlertCircle, ArrowLeft,
+   ClipboardList, UserCheck
 } from "lucide-react";import { Button } from "@/src/components/ui/button";
 import { cn } from "@/src/lib/utils";
 import Link from "next/link";
@@ -108,7 +108,7 @@ export function AlreadyAppliedScreen() {
 
 export function EmployeeApplicationForm() {
   const { data: session } = useSession();
-  const router = useRouter();
+  
   const [step, setStep] = useState<Step>(1);
   const [form, setForm] = useState<FormData>({
     ...initial,
@@ -203,10 +203,10 @@ export function EmployeeApplicationForm() {
   }
 
   return (
-    <div className="min-h-screen bg-secondary relative overflow-hidden">
+    <div className="min-h-screen bg-secondary relative overflow-hidden pt-15">
       {/* BG blobs */}
-      <div className="absolute -top-40 -right-40 size-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 size-[400px] rounded-full bg-highlight/5 blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 -right-40 size-125 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 size-100 rounded-full bg-highlight/5 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-12">
         {/* Back link */}
@@ -450,7 +450,7 @@ export function EmployeeApplicationForm() {
           </AnimatePresence>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
+          <div className="flex items-center justify-between gap-3 mt-8 pt-6 border-t border-slate-100">
             <button
               onClick={() => setStep((s) => (s > 1 ? (s - 1) as Step : s))}
               disabled={step === 1}
@@ -462,7 +462,7 @@ export function EmployeeApplicationForm() {
             {step < 4 ? (
               <Button
                 onClick={() => setStep((s) => (s < 4 ? (s + 1) as Step : s))}
-                className="rounded-2xl h-11 px-6 gap-2 text-[10px] font-black uppercase tracking-widest bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20"
+                className="rounded-2xl h-11 px-4 sm:px-6 gap-1.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 shrink-0"
               >
                 Next Step <ChevronRight className="size-3.5" />
               </Button>
@@ -470,10 +470,10 @@ export function EmployeeApplicationForm() {
               <Button
                 onClick={handleSubmit}
                 disabled={submitting || !form.fullName || !form.email || !form.position}
-                className="rounded-2xl h-11 px-6 gap-2 text-[10px] font-black uppercase tracking-widest bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 disabled:opacity-50"
+                className="rounded-2xl h-11 px-4 sm:px-6 gap-1.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 disabled:opacity-50 min-w-0 shrink"
               >
-                {submitting ? <Loader2 className="size-3.5 animate-spin" /> : <CheckCircle2 className="size-3.5" />}
-                Submit Application
+                {submitting ? <Loader2 className="size-3.5 animate-spin shrink-0" /> : <CheckCircle2 className="size-3.5 shrink-0" />}
+                <span className="truncate">Submit Application</span>
               </Button>
             )}
           </div>
@@ -501,6 +501,7 @@ function SectionTitle({ icon: Icon, title, subtitle }: { icon: React.ElementType
     </div>
   );
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function setAlreadyApplied(arg0: boolean) {
   throw new Error("Function not implemented.");
 }

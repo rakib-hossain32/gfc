@@ -133,7 +133,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex items-center gap-2 text-primary opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
               <ShieldCheck className="size-5" />
-              <span className="text-[10px] font-bold uppercase tracking-widest">ISO 9001:2015</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest">Quality Certified</span>
             </div>
             <div className="flex items-center gap-2 text-primary opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
               <Globe className="size-5" />

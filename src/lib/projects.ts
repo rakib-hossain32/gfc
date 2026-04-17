@@ -70,7 +70,7 @@ export const projects = [
     slug: "jeddah-port-facilities",
     title: "Jeddah Port Facilities",
     category: "Industrial Maintenance",
-    stats: "ISO Integrated",
+    stats: "Quality Integrated",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop",
     gallery: [
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop",

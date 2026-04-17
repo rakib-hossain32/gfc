@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import {
   User, Mail, Phone, Shield, Edit3, Save, X,
-  Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2,
-  Sparkles, Crown, Clock, Briefcase, ChevronRight,
-  Timer, Star, XCircle, CreditCard, ChevronLeft
+  Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2, Crown, Clock, Briefcase, ChevronRight,
+  Timer, Star, XCircle, CreditCard, ChevronLeft, LogOut
 } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
 import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/ui/button";
+import { EmployeeIdCard } from "@/src/components/blocks/EmployeeIdCard";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { EmployeeIdCard } from "@/src/components/blocks/EmployeeIdCard";
 
 interface UserProfile {
   id: string;
@@ -158,7 +158,7 @@ export function ProfileClient() {
             {/* Simple Avatar */}
             <div className="size-28 md:size-32 rounded-3xl bg-linear-to-br from-primary to-primary/90 flex items-center justify-center text-white text-3xl md:text-4xl font-black shadow-lg border-4 border-white overflow-hidden">
               {session?.user?.image ? (
-                <img src={session.user.image} alt="Avatar" className="size-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <Image src={session.user.image} alt="Avatar" width={128} height={128} className="size-full object-cover transition-transform duration-500 group-hover:scale-110" />
               ) : initials}
             </div>
             
@@ -344,7 +344,7 @@ export function ProfileClient() {
         {/* Security Card */}
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible" custom={5}
-          className="bg-white rounded-4xl border border-slate-100 shadow-sm p-6 md:p-8"
+          className="bg-white rounded-4xl border border-slate-100 shadow-sm p-6 md:p-8 mb-4"
         >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -431,6 +431,31 @@ export function ProfileClient() {
               </motion.div>
             )}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Sign Out */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="visible" custom={6}
+          className="bg-white rounded-4xl border border-red-100 shadow-sm p-5 md:p-6"
+        >
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="size-10 rounded-2xl bg-red-50 flex items-center justify-center">
+                <LogOut className="size-5 text-red-500" />
+              </div>
+              <div>
+                <h2 className="text-sm font-black text-accent uppercase tracking-widest">Sign Out</h2>
+                <p className="text-[10px] text-muted mt-0.5">End your current session</p>
+              </div>
+            </div>
+            <Button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="rounded-2xl h-10 px-5 gap-2 text-[10px] font-black uppercase tracking-widest bg-red-500 hover:bg-red-600 text-white shadow-sm"
+            >
+              <LogOut className="size-3.5" />
+              Sign Out
+            </Button>
+          </div>
         </motion.div>
       </div>
 

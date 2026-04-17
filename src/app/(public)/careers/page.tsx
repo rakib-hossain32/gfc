@@ -284,7 +284,7 @@ export default function CareersPage() {
       <section className="py-12 bg-slate-50 border-y border-slate-100 mb-20">
          <div className="container px-4 mx-auto">
             <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-30 grayscale saturate-0">
-               <div className="flex items-center gap-3"><ShieldCheck className="size-10" /><span className="text-xl font-black uppercase tracking-tight">ISO Certified</span></div>
+               <div className="flex items-center gap-3"><ShieldCheck className="size-10" /><span className="text-xl font-black uppercase tracking-tight">Quality Certified</span></div>
                <div className="flex items-center gap-3"><Users className="size-10" /><span className="text-xl font-black uppercase tracking-tight">EEO Employer</span></div>
                <div className="flex items-center gap-3"><Briefcase className="size-10" /><span className="text-xl font-black uppercase tracking-tight">Saudi National Vision 2030</span></div>
             </div>

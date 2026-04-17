@@ -18,7 +18,7 @@ export function SmartPhoneInput({ value, onChange, className, placeholder, requi
     <div className={cn("phone-input-container", className)}>
       <PhoneInput
         international
-        defaultCountry="QA"
+        defaultCountry="SA"
         value={value}
         onChange={onChange}
         placeholder={placeholder || "Enter phone number"}
@@ -33,7 +33,7 @@ export function SmartPhoneInput({ value, onChange, className, placeholder, requi
           width: 100%;
           height: 3.5rem;
           background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid #006C35;
           border-radius: 1rem;
           padding: 0 1.5rem;
           color: white;
@@ -42,8 +42,8 @@ export function SmartPhoneInput({ value, onChange, className, placeholder, requi
 
         .premium-phone-input:focus-within {
           background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(138, 21, 56, 0.5);
-          box-shadow: 0 0 0 1px rgba(138, 21, 56, 0.5);
+          border-color: #006C35;
+          box-shadow: 0 0 0 1px #006C35;
         }
 
         .premium-phone-input input {
@@ -57,7 +57,7 @@ export function SmartPhoneInput({ value, onChange, className, placeholder, requi
         }
 
         .premium-phone-input input::placeholder {
-          color: rgba(255, 255, 255, 0.2);
+          color: #006C35;
         }
 
         /* --- Global Country Dropdown Fix --- */
