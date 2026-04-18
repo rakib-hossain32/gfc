@@ -78,9 +78,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const isAdminPage = nextUrl.pathname.startsWith("/admin");
       
       if (isAdminPage) {
-        if (isLoggedIn && (auth?.user as { role?: string })?.role === "admin") return true;
-        if (isLoggedIn) return Response.redirect(new URL("/", nextUrl)); // logged in but not admin → home
-        return false; // not logged in → login page
+        const role = (auth?.user as { role?: string })?.role;
+        if (isLoggedIn && role === "admin") return true;
+        if (isLoggedIn) return Response.redirect(new URL("/", nextUrl));
+        return false;
       }
       return true;
     },

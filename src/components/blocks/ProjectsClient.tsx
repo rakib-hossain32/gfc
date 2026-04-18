@@ -43,7 +43,7 @@ export function ProjectsClient() {
       try {
         const res = await fetch("/api/projects");
         const data = await res.json();
-        setDbProjects(data);
+        setDbProjects(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Failed to fetch projects:", err);
       } finally {

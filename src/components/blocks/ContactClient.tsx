@@ -10,11 +10,11 @@ import { Input } from "@/src/components/ui/input";
 import { Textarea } from "@/src/components/ui/textarea";
 import {
   Mail,
-  MapPin,
+  
   Phone,
   Send,
   Clock,
-  Globe,
+  
   CheckCircle2,
   ShieldCheck,
   ChevronRight
@@ -128,9 +128,9 @@ export function ContactClient() {
       />
 
       {/* --- MAIN CONTENT GRID --- */}
-      <section className="py-16 md:py-24 relative">
+      <section className="py-12 md:py-24 relative">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-24 items-start">
 
             {/* LEFT: THE PITCH & INFO */}
             <div className="lg:col-span-5 space-y-12">
@@ -176,7 +176,7 @@ export function ContactClient() {
               </motion.div>
 
               {/* Trust Badges */}
-              <div className="pt-10 border-t border-slate-100 flex items-center gap-10 grayscale opacity-40">
+              <div className="pt-6 md:pt-10 border-t border-slate-100 flex flex-wrap items-center gap-6 md:gap-10 grayscale opacity-40">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="size-5" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Quality Certified</span>
@@ -196,12 +196,12 @@ export function ContactClient() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="bg-white rounded-4xl p-10 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden group">
+                <div className="bg-white rounded-3xl md:rounded-4xl p-5 sm:p-8 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden group">
                   {/* Decorative Glow */}
                   <div className="absolute top-0 right-0 size-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 -z-10" />
 
-                  <div className="mb-10">
-                    <h3 className="text-3xl font-black text-accent mb-2">Request a <span className="text-primary italic font-serif">Response.</span></h3>
+                  <div className="mb-6 md:mb-10">
+                    <h3 className="text-2xl md:text-3xl font-black text-accent mb-2">Request a <span className="text-primary italic font-serif">Response.</span></h3>
                     <p className="text-sm font-medium text-muted">Complete the inquiry briefing below for an immediate specialist assignment.</p>
                   </div>
 
@@ -284,9 +284,9 @@ export function ContactClient() {
       </section>
 
       {/* --- MAP SECTION --- */}
-      <section className="py-16 md:py-24 bg-slate-50 overflow-hidden">
+      <section className="py-12 md:py-24 bg-slate-50 overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4 md:gap-6">
             <SectionHeader
               badge="Headquarters"
               title="Location &"
@@ -294,7 +294,7 @@ export function ContactClient() {
               align="left"
               className="mb-0"
             />
-            <Button variant="outline" className="rounded-full h-12 gap-2 uppercase tracking-widest text-[10px] font-black">
+            <Button variant="outline" className="rounded-full h-10 md:h-12 gap-2 uppercase tracking-widest text-[10px] font-black shrink-0">
               Open Google Maps <ChevronRight className="size-4" />
             </Button>
           </div>
@@ -304,7 +304,7 @@ export function ContactClient() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="h-125 rounded-[3rem] overflow-hidden border-8 border-white shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000 relative group"
+            className="h-64 sm:h-80 md:h-125 rounded-2xl md:rounded-[3rem] overflow-hidden border-4 md:border-8 border-white shadow-xl md:shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000 relative group"
           >
             <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
             <iframe

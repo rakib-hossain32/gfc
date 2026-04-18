@@ -36,11 +36,11 @@ export function HomeHero() {
       <div className="absolute inset-0 z-0 opacity-[0.05]" 
            style={{ backgroundImage: `radial-gradient(circle, #000 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
-      <div className="container mx-auto px-5 sm:px-8 md:px-12 relative z-10 py-20 md:py-24">
+      <div className="container px-4 md:px-6 mx-auto py-20 md:py-24 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 xl:gap-16 items-center">
           
           {/* CONTENT SIDE */}
-          <div className="lg:col-span-7 space-y-8 md:space-y-12">
+          <div className="lg:col-span-7 space-y-8 md:space-y-12 min-w-0">
             
             <div className="space-y-5 md:space-y-8">
               {/* Tag */}
@@ -63,10 +63,10 @@ export function HomeHero() {
                   transition={{ duration: 0.8 }}
                   className="space-y-1"
                 >
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-accent leading-[0.85] tracking-tighter uppercase">
+                  <h1 className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl font-black text-accent leading-[0.85] tracking-tighter uppercase">
                     Building
                   </h1>
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-primary leading-[0.85] tracking-tight italic lowercase font-serif pl-2 sm:pl-4 md:pl-6">
+                  <h1 className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl font-light text-primary leading-[0.85] tracking-tight italic lowercase font-serif pl-2 sm:pl-4 md:pl-6">
                     Excellence.
                   </h1>
                 </motion.div>
@@ -80,7 +80,7 @@ export function HomeHero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-xs sm:text-lg md:text-xl text-accent/70 max-w-xl leading-relaxed font-medium"
+                className="text-xs sm:text-lg md:text-xl text-accent/70 max-w-full sm:max-w-xl leading-relaxed font-medium pr-2"
               >
                 Golden First Contracting elevates the standard of 
                 <span className="text-accent font-bold"> facility management </span> 
@@ -88,27 +88,73 @@ export function HomeHero() {
               </motion.p>
             </div>
 
-            {/* Mobile/Tablet Image — shown only below lg */}
+            {/* Mobile Image Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="lg:hidden relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-2xl"
+              className="lg:hidden relative w-full pb-2 overflow-hidden"
             >
-              <Image 
-                src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?fm=jpg&q=60&w=1600&auto=format&fit=crop" 
-                alt="Riyadh Corporate District"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-accent/80 via-accent/20 to-transparent" />
-              <div className="absolute bottom-5 left-5 text-white">
-                <div className="h-0.5 w-8 bg-primary mb-3" />
-                <p className="text-[9px] font-black tracking-[0.4em] opacity-60 uppercase mb-1">Prime Assets</p>
-                <h3 className="text-xl font-black tracking-tighter leading-none">FACILITY EXPERTISE</h3>
+              <div className="flex gap-2 w-full">
+                {/* Left — tall */}
+                <div className="relative flex-3 h-48 rounded-xl overflow-hidden shadow-lg min-w-0">
+                  <Image
+                    src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?fm=jpg&q=80&w=600&auto=format&fit=crop"
+                    alt="Facility"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-accent/80 via-accent/10 to-transparent" />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="bg-primary text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full">Facility</span>
+                  </div>
+                  <div className="absolute bottom-3 left-3">
+                    <div className="h-px w-5 bg-primary mb-1.5" />
+                    <p className="text-[7px] font-black tracking-widest text-white/50 uppercase">Prime Assets</p>
+                    <h3 className="text-xs font-black text-white leading-tight">FACILITY<br/>EXPERTISE</h3>
+                  </div>
+                </div>
+
+                {/* Right — two stacked */}
+                <div className="flex-2 flex flex-col gap-2 min-w-0">
+                  <div className="relative flex-1 rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400&auto=format&fit=crop"
+                      alt="Engineering"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/70 to-accent/60" />
+                    <div className="absolute bottom-2 left-2.5">
+                      <span className="text-xl font-black text-white leading-none">99<span className="text-xs text-white/60">%</span></span>
+                      <p className="text-[7px] font-black text-white/60 uppercase tracking-widest">Precision</p>
+                    </div>
+                  </div>
+                  <div className="relative flex-1 rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=400&auto=format&fit=crop"
+                      alt="Construction"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-accent/70 to-transparent" />
+                    <div className="absolute bottom-2 left-2.5 flex items-center gap-1">
+                      <div className="size-1.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-[7px] font-black text-white/70 uppercase tracking-widest">Active</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                <span className="text-white text-xs font-black">99% Precision</span>
+
+              {/* Floating stat — below images, not overlapping */}
+              <div className="mt-3 flex items-center gap-3 bg-white rounded-xl px-4 py-2.5 shadow-md border border-slate-100 w-fit">
+                <div className="size-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <ShieldCheck className="size-3.5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-[7px] font-black text-accent/40 uppercase tracking-widest">Reliability</p>
+                  <p className="text-[11px] font-black text-accent">Top Tier Standards</p>
+                </div>
               </div>
             </motion.div>
 
@@ -117,24 +163,24 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+              className="flex flex-row flex-wrap justify-center items-center gap-3 mt-6 lg:mt-0"
             >
-              <Link href="/contact" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto h-10 sm:h-14 px-7 sm:px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-primary/20 group">
+              <Link href="/contact">
+                <Button className="h-10 sm:h-12 px-5 sm:px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg shadow-primary/20 group whitespace-nowrap">
                   Initiate Project
-                  <ArrowRight className="ml-2 size-4 sm:size-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 size-3.5 sm:size-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               
-              <Link href="/projects" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full sm:w-auto h-10 sm:h-14 px-7 sm:px-10 rounded-full border-2 border-accent/20 text-accent hover:bg-accent hover:text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all">
+              <Link href="/projects">
+                <Button variant="outline" className="h-10 sm:h-12 px-5 sm:px-10 rounded-full border-2 border-accent/20 text-accent hover:bg-accent hover:text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider transition-all whitespace-nowrap">
                   The Portfolio
                 </Button>
               </Link>
             </motion.div>
 
             {/* Micro Stats */}
-            <motion.div 
+            {/* <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -169,7 +215,7 @@ export function HomeHero() {
                 </div>
                 <p className="text-[8px] sm:text-[9px] text-accent/40 font-bold uppercase tracking-widest">Global Partner Network</p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* VISUAL COMPOSITION SIDE — desktop only */}

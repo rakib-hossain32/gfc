@@ -43,14 +43,14 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className=" bg-white relative overflow-hidden">
       {/* Background Micro-details */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #000 1px, transparent 0)`, backgroundSize: '40px 40px' }} 
       />
 
-      <div className="container px-6 mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+      <div className="container px-4 md:px-6 mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-10 md:gap-16 lg:gap-20 items-center">
           
           {/* Left: Content Block */}
           <div className="lg:w-5/12 space-y-8">
@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
                  <div className="w-10 h-px bg-primary" />
                  <span className="text-primary text-[10px] font-black uppercase tracking-[0.4em]">The Advantage</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-accent leading-[1.15]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent leading-[1.15]">
                 Why Industry Leaders <br /> 
                 <span className="text-primary">Trust Our Vision.</span>
               </h2>
@@ -73,24 +73,24 @@ export default function WhyChooseUs() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="flex items-center gap-4 p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
-                <div className="size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary">
-                  <Clock className="size-5" />
+            <div className="grid grid-cols-2 gap-3 md:gap-4 pt-4">
+              <div className="flex items-center gap-3 p-3 md:p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
+                <div className="size-8 md:size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
+                  <Clock className="size-4 md:size-5" />
                 </div>
                 <div>
-                  <p className="text-xl font-bold text-accent">12+ Years</p>
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-widest">Market Experience</p>
+                  <p className="text-base md:text-xl font-bold text-accent">12+ Years</p>
+                  <p className="text-[9px] md:text-[10px] font-bold text-muted uppercase tracking-widest leading-tight">Market Experience</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
-                <div className="size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary">
-                  <BarChart3 className="size-5" />
+              <div className="flex items-center gap-3 p-3 md:p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
+                <div className="size-8 md:size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
+                  <BarChart3 className="size-4 md:size-5" />
                 </div>
                 <div>
-                  <p className="text-xl font-bold text-accent">500+ Projects</p>
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-widest">Successful Delivery</p>
+                  <p className="text-base md:text-xl font-bold text-accent">500+ Projects</p>
+                  <p className="text-[9px] md:text-[10px] font-bold text-muted uppercase tracking-widest leading-tight">Successful Delivery</p>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right: Modern Feature Grid (Refined & Compact) */}
-          <div className="lg:w-7/12 grid sm:grid-cols-2 gap-4">
+          <div className="lg:w-7/12 grid grid-cols-2 gap-3 md:gap-4">
             {reasons.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -119,35 +119,35 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative p-8 rounded-2xl bg-white border border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-slate-200/40 transition-all duration-500"
+                className="group relative p-4 md:p-8 rounded-xl md:rounded-2xl bg-white border border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-slate-200/40 transition-all duration-500"
               >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="size-10 rounded-xl bg-slate-50 flex items-center justify-center text-accent group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                    <item.icon className="size-5" />
+                <div className="flex justify-between items-start mb-3 md:mb-6">
+                  <div className="size-8 md:size-10 rounded-lg md:rounded-xl bg-slate-50 flex items-center justify-center text-accent group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    <item.icon className="size-4 md:size-5" />
                   </div>
-                  <span className="text-[9px] font-bold text-muted uppercase tracking-widest px-2 py-1 bg-slate-50 rounded">
+                  <span className="text-[8px] md:text-[9px] font-bold text-muted uppercase tracking-widest px-1.5 md:px-2 py-0.5 md:py-1 bg-slate-50 rounded">
                     {item.tag}
                   </span>
                 </div>
-                <h4 className="text-lg font-bold text-accent mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
-                <p className="text-xs text-muted leading-relaxed font-medium">
+                <h4 className="text-sm md:text-lg font-bold text-accent mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight">{item.title}</h4>
+                <p className="text-[11px] md:text-xs text-muted leading-relaxed font-medium">
                   {item.desc}
                 </p>
               </motion.div>
             ))}
             
             {/* Visual Accent Card */}
-            <div className="sm:col-span-2 mt-2 h-48 rounded-2xl overflow-hidden relative shadow-xl">
+            <div className="col-span-2 mt-1 md:mt-2 h-36 md:h-48 rounded-xl md:rounded-2xl overflow-hidden relative shadow-xl">
               <Image 
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" 
                 alt="Corporate Architecture" 
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-r from-accent/90 via-accent/40 to-transparent flex items-center px-10">
+              <div className="absolute inset-0 bg-linear-to-r from-accent/90 via-accent/40 to-transparent flex items-center px-6 md:px-10">
                 <div className="space-y-1">
-                  <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest">Official Rating</p>
-                  <p className="text-2xl font-black text-white">Tier-1 Contractor</p>
+                  <p className="text-white/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">Official Rating</p>
+                  <p className="text-xl md:text-2xl font-black text-white">Tier-1 Contractor</p>
                 </div>
               </div>
             </div>

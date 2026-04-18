@@ -11,13 +11,10 @@ import {
   Eye, 
   Compass, 
   Award,
-  Globe,
-  Star
+  Globe
 } from "lucide-react";
 import Image from "next/image";
 import { SectionHeader } from "@/src/components/ui/section-header";
-import { Button } from "@/src/components/ui/button";
-import Link from "next/link";
 
 const stats = [
   { label: "Operating Since", value: "2025", icon: History },
@@ -77,27 +74,27 @@ export function AboutClient() {
       />
 
       {/* --- STATS DASHBOARD --- */}
-      <section className="py-16 md:py-24 bg-white relative">
+      <section className="py-12 md:py-24 bg-white relative">
          <div className="container px-4 md:px-6 mx-auto">
             <motion.div 
                variants={containerVariants}
                initial="hidden"
                whileInView="visible"
                viewport={{ once: true }}
-               className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+               className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
             >
                {stats.map((stat, i) => (
                   <motion.div 
                      key={i} 
                      variants={itemVariants}
-                     className="flex flex-col items-center text-center space-y-4 group"
+                     className="flex flex-col items-center text-center space-y-3 md:space-y-4 group p-4 md:p-0"
                   >
-                     <div className="size-16 rounded-3xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
-                        <stat.icon className="size-8" />
+                     <div className="size-12 md:size-16 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
+                        <stat.icon className="size-6 md:size-8" />
                      </div>
                      <div>
-                        <h4 className="text-4xl font-black text-accent">{stat.value}</h4>
-                        <p className="text-[10px] font-bold text-muted uppercase tracking-widest">{stat.label}</p>
+                        <h4 className="text-2xl md:text-4xl font-black text-accent">{stat.value}</h4>
+                        <p className="text-[9px] md:text-[10px] font-bold text-muted uppercase tracking-widest leading-tight mt-1">{stat.label}</p>
                      </div>
                   </motion.div>
                ))}
@@ -106,14 +103,13 @@ export function AboutClient() {
       </section>
 
       {/* --- MISSION & VISION --- */}
-      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden">
-        {/* Background Accents */}
+      <section className="py-12 md:py-24 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white -skew-x-12 translate-x-1/2 z-0" />
         
         <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
             
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
                <SectionHeader 
                  badge="The Identity"
                  title="Our Mission &"
@@ -122,28 +118,28 @@ export function AboutClient() {
                  className="mb-0"
                />
                
-               <div className="grid gap-10">
-                  <div className="flex gap-6 group">
-                     <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                        <Target className="size-6" />
+               <div className="grid gap-6 md:gap-10 mt-8">
+                  <div className="flex gap-4 md:gap-6 group">
+                     <div className="size-10 md:size-12 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <Target className="size-5 md:size-6" />
                      </div>
-                     <div className="space-y-3">
-                        <h4 className="text-xl font-black text-accent">The Mission</h4>
-                        <p className="text-muted leading-relaxed font-sm">
-                           To elevate Saudi Arabia&#39;s operational landscape by providing multi-disciplinary services 
+                     <div className="space-y-2 md:space-y-3">
+                        <h4 className="text-lg md:text-xl font-black text-accent">The Mission</h4>
+                        <p className="text-muted leading-relaxed text-sm md:text-base">
+                           To elevate Saudi Arabia&apos;s operational landscape by providing multi-disciplinary services 
                            that integrate global standards with deep-rooted local expertise.
                         </p>
                      </div>
                   </div>
 
-                  <div className="flex gap-6 group">
-                     <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                        <Eye className="size-6" />
+                  <div className="flex gap-4 md:gap-6 group">
+                     <div className="size-10 md:size-12 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <Eye className="size-5 md:size-6" />
                      </div>
-                     <div className="space-y-3">
-                        <h4 className="text-xl font-black text-accent">The Vision</h4>
-                        <p className="text-muted leading-relaxed font-sm">
-                           Becoming the primary infrastructure partner for Saudi Arabia's National Vision 2030, 
+                     <div className="space-y-2 md:space-y-3">
+                        <h4 className="text-lg md:text-xl font-black text-accent">The Vision</h4>
+                        <p className="text-muted leading-relaxed text-sm md:text-base">
+                           Becoming the primary infrastructure partner for Saudi Arabia&apos;s National Vision 2030, 
                            driving sustainability and efficiency across every square meter of the nation.
                         </p>
                      </div>
@@ -156,7 +152,7 @@ export function AboutClient() {
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
                transition={{ duration: 1 }}
-               className="relative h-[500px] rounded-[3rem] overflow-hidden border-12 border-white shadow-2xl"
+               className="relative h-64 sm:h-80 md:h-125 rounded-2xl md:rounded-[3rem] overflow-hidden border-4 md:border-12 border-white shadow-2xl"
             >
                <Image 
                   src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
@@ -172,7 +168,7 @@ export function AboutClient() {
       </section>
 
       {/* --- CORE VALUES --- */}
-      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+      <section className="py-12 md:py-24 bg-white relative overflow-hidden">
          <div className="container px-4 md:px-6 mx-auto">
             <SectionHeader 
                badge="The Code"
@@ -187,19 +183,19 @@ export function AboutClient() {
                initial="hidden"
                whileInView="visible"
                viewport={{ once: true }}
-               className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+               className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-16"
             >
                {values.map((value, i) => (
                   <motion.div 
                      key={i} 
                      variants={itemVariants}
                      whileHover={{ y: -10 }}
-                     className="p-10 rounded-[2.5rem] bg-slate-50/50 border border-slate-100 hover:bg-white hover:border-primary/20 hover:shadow-2xl transition-all duration-500 text-center flex flex-col items-center space-y-6"
+                     className="p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] bg-slate-50/50 border border-slate-100 hover:bg-white hover:border-primary/20 hover:shadow-2xl transition-all duration-500 text-center flex flex-col items-center space-y-4 md:space-y-6"
                   >
-                     <div className="size-16 rounded-3xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary">
-                        <value.icon className="size-8" />
+                     <div className="size-12 md:size-16 rounded-2xl md:rounded-3xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary">
+                        <value.icon className="size-6 md:size-8" />
                      </div>
-                     <h4 className="text-2xl font-black text-accent">{value.title}</h4>
+                     <h4 className="text-lg md:text-2xl font-black text-accent">{value.title}</h4>
                      <p className="text-muted text-sm leading-relaxed font-medium">
                         {value.desc}
                      </p>
@@ -210,19 +206,19 @@ export function AboutClient() {
       </section>
 
       {/* --- TRUST FOOTER --- */}
-      <section className="py-20 border-t border-slate-100 flex flex-col items-center gap-10">
+      <section className="py-12 md:py-20 border-t border-slate-100 flex flex-col items-center gap-6 md:gap-10 px-4">
          <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Official Accreditation</p>
-         <div className="flex flex-wrap items-center justify-center gap-12 grayscale opacity-30">
+         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 grayscale opacity-30">
             <div className="flex items-center gap-2">
-               <ShieldCheck className="size-6 text-accent" />
+               <ShieldCheck className="size-5 md:size-6 text-accent" />
                <span className="text-xs font-bold font-sans">Quality Certified</span>
             </div>
             <div className="flex items-center gap-2">
-               <Globe className="size-6 text-accent" />
+               <Globe className="size-5 md:size-6 text-accent" />
                <span className="text-xs font-bold font-sans">GCC REGIONAL</span>
             </div>
             <div className="flex items-center gap-2">
-               <Building2 className="size-6 text-accent" />
+               <Building2 className="size-5 md:size-6 text-accent" />
                <span className="text-xs font-bold font-sans">DP CERTIFIED</span>
             </div>
          </div>

@@ -115,10 +115,10 @@ export function QuickRequestSection() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -skew-x-12 translate-x-1/2 -z-10" />
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-24 items-center">
           
           {/* --- LEFT SIDE: THE PITCH --- */}
-          <div className="lg:col-span-6 space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="lg:col-span-6 space-y-8 md:space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
             <SectionHeader 
                badge="Priority Access"
                title="Ready to Experience"
@@ -133,20 +133,20 @@ export function QuickRequestSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid sm:grid-cols-2 gap-8 w-full"
+              className="grid grid-cols-2 gap-4 md:gap-8 w-full mt-5"
             >
               {benefits.map((benefit, i) => (
                 <motion.div 
                   key={i} 
                   variants={itemVariants}
-                  className="group space-y-3 flex flex-col items-center lg:items-start"
+                  className="group space-y-2 md:space-y-3 flex flex-col items-center lg:items-start"
                 >
-                  <div className="size-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
-                    <benefit.icon className="size-6" />
+                  <div className="size-10 md:size-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                    <benefit.icon className="size-5 md:size-6" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-accent group-hover:text-primary transition-colors">{benefit.text}</h4>
-                    <p className="text-xs font-medium text-muted leading-relaxed line-clamp-2">{benefit.sub}</p>
+                    <h4 className="text-xs md:text-base font-bold text-accent group-hover:text-primary transition-colors leading-tight">{benefit.text}</h4>
+                    <p className="text-[10px] md:text-xs font-medium text-muted leading-relaxed line-clamp-2 hidden sm:block">{benefit.sub}</p>
                   </div>
                 </motion.div>
               ))}
@@ -157,13 +157,13 @@ export function QuickRequestSection() {
                initial={{ opacity: 0 }}
                whileInView={{ opacity: 1 }}
                transition={{ delay: 0.6 }}
-               className="pt-8 border-t border-slate-100 w-full flex flex-col items-center lg:items-start"
+               className="pt-6 md:pt-8 border-t border-slate-100 w-full flex flex-col items-center lg:items-start"
             >
-               <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-6">Trusted Infrastructure Partner of</p>
-               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 grayscale opacity-40">
-                  <div className="h-6 w-24 bg-slate-200 rounded-md animate-pulse" />
-                  <div className="h-6 w-24 bg-slate-200 rounded-md animate-pulse" />
-                  <div className="h-6 w-24 bg-slate-200 rounded-md animate-pulse" />
+               <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-4 md:mb-6">Trusted Infrastructure Partner of</p>
+               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-8 grayscale opacity-40">
+                  <div className="h-5 w-20 md:h-6 md:w-24 bg-slate-200 rounded-md animate-pulse" />
+                  <div className="h-5 w-20 md:h-6 md:w-24 bg-slate-200 rounded-md animate-pulse" />
+                  <div className="h-5 w-20 md:h-6 md:w-24 bg-slate-200 rounded-md animate-pulse" />
                </div>
             </motion.div>
           </div>
@@ -177,12 +177,11 @@ export function QuickRequestSection() {
                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                className="relative z-10"
              >
-               <div className="bg-white rounded-[2.5rem] p-10 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden group">
-                  {/* Decorative Background Accent */}
+               <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-5 sm:p-8 md:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 size-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 -z-10 group-hover:bg-primary/10 transition-colors duration-700" />
                   
-                  <div className="mb-10 space-y-2">
-                    <h3 className="text-3xl font-black text-accent">Request a <span className="text-primary italic font-serif">Briefing.</span></h3>
+                  <div className="mb-6 md:mb-10 space-y-1.5 md:space-y-2">
+                    <h3 className="text-2xl md:text-3xl font-black text-accent">Request a <span className="text-primary italic font-serif">Briefing.</span></h3>
                     <p className="text-sm font-medium text-muted">Complete the fields below for an immediate corporate response.</p>
                   </div>
 

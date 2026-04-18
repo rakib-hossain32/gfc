@@ -116,7 +116,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ applications, total, page, limit });
   } catch (e) {
-    console.error(e);
-    return NextResponse.json({ error: "Failed to fetch applications" }, { status: 500 });
+    console.error("GET /api/careers error:", e);
+    return NextResponse.json({ error: "Failed to fetch applications", details: String(e) }, { status: 500 });
   }
 }

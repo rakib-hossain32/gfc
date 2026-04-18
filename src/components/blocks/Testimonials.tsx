@@ -101,7 +101,7 @@ export function Testimonials() {
   };
 
   return (
-    <section className={cn("py-16 md:py-24 bg-slate-50 relative overflow-hidden", isModalOpen ? "z-50" : "z-10")}>
+    <section className={cn(" bg-slate-50 relative overflow-hidden", isModalOpen ? "z-50" : "z-10")}>
       <div className="absolute top-0 left-0 w-full h-125 bg-linear-to-b from-white to-transparent" />
       <div className="absolute top-[20%] right-[-10%] size-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
 

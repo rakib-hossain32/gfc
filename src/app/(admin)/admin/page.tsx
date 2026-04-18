@@ -88,7 +88,7 @@ function AdminContent() {
     try {
       const res = await fetch("/api/projects");
       const data = await res.json();
-      setProjects(data);
+      setProjects(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
     } finally {

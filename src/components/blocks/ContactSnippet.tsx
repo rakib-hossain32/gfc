@@ -59,10 +59,10 @@ export function ContactSnippet() {
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid xl:grid-cols-12 gap-12 xl:gap-20 items-center">
 
           {/* --- LEFT SIDE: THE DETAILS --- */}
-          <div className="lg:col-span-12 xl:col-span-5 space-y-12">
+          <div className="xl:col-span-5 space-y-12">
             <SectionHeader
               badge="Corporate Presence"
               title="Connect with the"
@@ -77,7 +77,7 @@ export function ContactSnippet() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid sm:grid-cols-2 gap-x-12 gap-y-12"
+              className="grid sm:grid-cols-2 gap-x-12 gap-y-12 mt-5"
             >
               {contactData.map((item, i) => (
                 <motion.div
@@ -120,13 +120,13 @@ export function ContactSnippet() {
           </div>
 
           {/* --- RIGHT SIDE: THE VISUAL MAP --- */}
-          <div className="lg:col-span-12 xl:col-span-7 relative">
+          <div className="xl:col-span-7 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-video lg:aspect-auto lg:h-[600px] rounded-[3rem] overflow-hidden border-12 border-slate-50 shadow-[0_40px_100px_rgba(0,0,0,0.12)] group"
+              className="relative aspect-video xl:aspect-auto xl:h-[580px] rounded-3xl xl:rounded-[3rem] overflow-hidden border-4 xl:border-12 border-slate-50 shadow-[0_40px_100px_rgba(0,0,0,0.12)] group"
             >
               <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
 
@@ -175,8 +175,8 @@ export function ContactSnippet() {
 
 
             {/* Decorative Ornaments */}
-            <div className="absolute -top-12 -right-12 size-48 border-2 border-primary/10 rounded-full animate-pulse" />
-            <div className="absolute -bottom-16 -left-16 size-64 bg-accent/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute -top-12 -right-12 size-48 border-2 border-primary/10 rounded-full animate-pulse hidden xl:block" />
+            <div className="absolute -bottom-16 -left-16 size-64 bg-accent/5 rounded-full blur-3xl -z-10 hidden xl:block" />
           </div>
 
         </div>

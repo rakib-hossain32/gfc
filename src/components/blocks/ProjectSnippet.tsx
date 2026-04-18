@@ -46,7 +46,7 @@ export function ProjectSnippet() {
       try {
         const res = await fetch("/api/projects");
         const data = await res.json();
-        setDbProjects(data);
+        setDbProjects(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Failed to fetch featured projects:", err);
       } finally {

@@ -38,7 +38,7 @@ export function ContactManager() {
     try {
       const res = await fetch("/api/contact");
       const data = await res.json();
-      setInquiries(data);
+      setInquiries(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
     } finally {

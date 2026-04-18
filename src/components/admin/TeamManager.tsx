@@ -19,7 +19,7 @@ export function TeamManager() {
     try {
       const res = await fetch("/api/team");
       const data = await res.json();
-      setTeam(data);
+      setTeam(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
     } finally {

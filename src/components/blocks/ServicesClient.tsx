@@ -188,9 +188,9 @@ export function ServicesClient() {
                   We engineer custom facility management packages designed for the specific needs of large-scale 
                   corporations, government entities, and private estates.
                </p>
-               <div className="pt-2 sm:pt-4">
+               <div className="pt-2 sm:pt-4 flex justify-center">
                   <Button asChild size="lg" className="h-11 md:h-16 px-8 md:px-14 rounded-xl md:rounded-2xl bg-white text-accent hover:bg-primary hover:text-white transition-all duration-500 shadow-2xl font-black uppercase tracking-widest text-[10px]">
-                     <Link href="/contact" className="gap-2 sm:gap-3">
+                     <Link href="/contact" className="flex items-center gap-2 sm:gap-3">
                         Discuss Master Agreement <ArrowRight className="size-4 sm:size-5" />
                      </Link>
                   </Button>

@@ -98,7 +98,7 @@ export function Header() {
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1] max-w-375 mx-auto",
+          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1]",
           scrolled ? "px-4 md:px-8" : "px-0"
         )}
       >

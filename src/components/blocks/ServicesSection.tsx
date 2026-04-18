@@ -190,7 +190,7 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 md:mt-20 pt-10 md:pt-16 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+          className=" pt-10 md:pt-16 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
         >
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex items-center -space-x-2">
