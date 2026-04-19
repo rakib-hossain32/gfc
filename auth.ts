@@ -15,6 +15,13 @@ declare module "next-auth" {
   }
 }
 
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
+    role: string;
+  }
+}
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Google({
@@ -72,18 +79,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         session.user.role = token.role as string;
       }
       return session;
-    },
-    authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const isAdminPage = nextUrl.pathname.startsWith("/admin");
-      
-      if (isAdminPage) {
-        const role = (auth?.user as { role?: string })?.role;
-        if (isLoggedIn && role === "admin") return true;
-        if (isLoggedIn) return Response.redirect(new URL("/", nextUrl));
-        return false;
-      }
-      return true;
     },
   },
 });

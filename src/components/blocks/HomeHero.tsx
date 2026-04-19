@@ -163,7 +163,7 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-row flex-wrap justify-center items-center gap-3 mt-6 lg:mt-0"
+              className="flex flex-row flex-wrap justify-center lg:justify-start items-center gap-3 mt-6 lg:mt-0"
             >
               <Link href="/contact">
                 <Button className="h-10 sm:h-12 px-5 sm:px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg shadow-primary/20 group whitespace-nowrap">

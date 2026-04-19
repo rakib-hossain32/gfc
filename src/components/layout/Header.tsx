@@ -50,7 +50,7 @@ export function Header() {
     <>
       {/* --- TOP STRIP --- */}
       <div className={cn(
-        "hidden lg:block bg-slate-950 py-2.5 transition-all duration-700 relative z-60 overflow-hidden",
+        "hidden lg:block bg-slate-950 py-2 transition-all duration-700 relative z-60 overflow-hidden",
         scrolled ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
       )}>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px)] bg-size-[40px_1px]" />
@@ -98,7 +98,7 @@ export function Header() {
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1]",
+          "fixed inset-x-0 top-0 w-full z-50 flex justify-center transition-[padding] duration-700 ease-[0.16,1,0.3,1] max-w-380 mx-auto",
           scrolled ? "px-4 md:px-8" : "px-0"
         )}
       >
@@ -106,7 +106,7 @@ export function Header() {
           initial={false}
           animate={{
             maxWidth: (scrolled && isDesktop) ? "80rem" : "100%",
-            paddingTop: scrolled ? (isDesktop ? 10 : 10) : (isDesktop ? 20 : 14),
+            paddingTop: scrolled ? (isDesktop ? 2 : 10) : (isDesktop ? 10 : 14),
             paddingBottom: scrolled ? (isDesktop ? 10 : 10) : (isDesktop ? 20 : 14),
             paddingLeft: scrolled ? (isDesktop ? 32 : 16) : (isDesktop ? 24 : 16),
             paddingRight: scrolled ? (isDesktop ? 32 : 16) : (isDesktop ? 24 : 16),
