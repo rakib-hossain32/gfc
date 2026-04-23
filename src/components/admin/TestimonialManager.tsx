@@ -139,7 +139,7 @@ export function TestimonialManager() {
                 {/* Profile */}
                 <div className="flex gap-4 min-w-[240px] shrink-0">
                    <div className="size-14 rounded-full overflow-hidden relative border-2 border-slate-100">
-                      <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                      <Image src={review.avatar} alt={review.name} fill sizes="56px" className="object-cover" />
                    </div>
                    <div className="flex flex-col min-w-0">
                       <h4 className="font-black text-accent truncate transform group-hover:text-primary transition-colors">{review.name}</h4>

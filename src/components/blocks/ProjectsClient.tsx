@@ -105,7 +105,7 @@ export function ProjectsClient() {
                 >
                   <div className="relative aspect-16/11 rounded-2xl md:rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-lg md:shadow-2xl shadow-slate-200 group-hover:shadow-primary/20 transition-all duration-700">
                     <div className="absolute inset-0 size-full">
-                      <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
+                      <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-1000" />
                     </div>
                     <div className="absolute inset-0 bg-linear-to-t from-accent via-accent/20 to-transparent group-hover:via-accent/40 transition-all duration-700" />
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-700" />

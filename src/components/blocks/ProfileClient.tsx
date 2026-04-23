@@ -158,7 +158,7 @@ export function ProfileClient() {
             {/* Simple Avatar */}
             <div className="size-28 md:size-32 rounded-3xl bg-linear-to-br from-primary to-primary/90 flex items-center justify-center text-white text-3xl md:text-4xl font-black shadow-lg border-4 border-white overflow-hidden">
               {session?.user?.image ? (
-                <Image src={session.user.image} alt="Avatar" width={128} height={128} className="size-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <Image src={session.user.image} alt="Avatar" width={128} height={128} sizes="128px" className="size-full object-cover transition-transform duration-500 group-hover:scale-110" />
               ) : initials}
             </div>
             

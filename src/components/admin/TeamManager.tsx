@@ -98,6 +98,7 @@ export function TeamManager() {
                     src={member.image || "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"}
                     alt={member.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-accent to-transparent opacity-60" />

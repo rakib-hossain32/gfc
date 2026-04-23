@@ -111,7 +111,7 @@ export function ProjectModal({ project, isOpen, onClose, isLoading }: ProjectMod
                          >
                             <Image 
                                src={project.gallery[currentImageIndex]} 
-                               alt="Gallery" fill className="object-cover" priority
+                               alt="Gallery" fill sizes="(max-width: 768px) 100vw, 60vw" className="object-cover" priority
                             />
                          </motion.div>
                       </AnimatePresence>
@@ -136,7 +136,7 @@ export function ProjectModal({ project, isOpen, onClose, isLoading }: ProjectMod
                             onClick={() => setCurrentImageIndex(i)} 
                             className={`relative size-12 sm:size-14 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${i === currentImageIndex ? 'border-primary' : 'border-transparent opacity-50'}`}
                          >
-                            <Image src={img} alt="Thumb" fill className="object-cover" />
+                            <Image src={img} alt="Thumb" fill sizes="56px" className="object-cover" />
                          </button>
                       ))}
                    </div>

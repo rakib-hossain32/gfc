@@ -145,7 +145,7 @@ export function WorkProcess() {
             <div className="flex -space-x-3 shrink-0">
                {[1,2,3,4].map(i => (
                   <div key={i} className="size-9 md:size-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden relative">
-                     <Image src={`https://randomuser.me/api/portraits/men/${i+40}.jpg`} alt="Worker" fill className="object-cover" />
+                     <Image src={`https://randomuser.me/api/portraits/men/${i+40}.jpg`} alt="Worker" fill sizes="40px" className="object-cover" />
                   </div>
                ))}
                <div className="size-9 md:size-10 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[9px] md:text-[10px] font-bold text-white">

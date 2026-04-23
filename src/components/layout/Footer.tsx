@@ -1,22 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Building2,
+
   Facebook,
   Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
-  ArrowUpRight,
+
   Globe,
   ShieldCheck,
-  ChevronRight,
-  ArrowRight
+ 
 } from "lucide-react";
-import { motion } from "framer-motion";
+
 
 import { useSettings } from "@/src/components/providers/SettingsProvider";
 
@@ -35,17 +34,15 @@ export function Footer() {
 
           {/* Brand Column - 4 Columns Wide on LG */}
           <div className="lg:col-span-4 space-y-8">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="size-12 bg-white rounded-2xl flex items-center justify-center text-accent group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl">
-                <Building2 className="size-7" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tighter leading-none italic uppercase">
-                  {settings.siteName.split(' ')[0] || "RIYADH"}
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase leading-none mt-1">
-                  {settings.siteName.split(' ').slice(1).join(' ') || "Popular"}
-                </span>
+            <Link href="/" className="inline-flex items-center gap-4 group">
+              <div className="relative shrink-0 transition-all duration-500 group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="GFC Logo"
+                  width={52}
+                  height={52}
+                  className="object-contain drop-shadow-lg brightness-0 invert"
+                />
               </div>
             </Link>
 

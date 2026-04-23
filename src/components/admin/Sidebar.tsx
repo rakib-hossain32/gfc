@@ -60,12 +60,14 @@ export function Sidebar({ sidebarOpen, isMobile, activeTab, setActiveTab, setSid
           >
             {/* Logo area */}
             <div className="flex items-center gap-4 mb-10">
-              <div className="size-10 rounded-xl bg-primary flex items-center justify-center p-2 shrink-0">
-                <div className="size-full border-2 border-white/50 rounded-sm" />
-              </div>
-              <div className="flex flex-col truncate">
-                <span className="text-xl font-black tracking-tighter leading-none uppercase">Golden First Contracting</span>
-                <span className="text-[10px] text-white/50 uppercase tracking-widest font-black">Management</span>
+              <div className="shrink-0 relative">
+                <Image
+                  src="/logo.png"
+                  alt="GFC Logo"
+                  width={44}
+                  height={44}
+                  className="object-contain brightness-0 invert drop-shadow-lg"
+                />
               </div>
               {isMobile && (
                 <button onClick={() => setSidebarOpen(false)} className="ml-auto p-2 hover:bg-white/10 rounded-full transition-colors">
@@ -102,7 +104,7 @@ export function Sidebar({ sidebarOpen, isMobile, activeTab, setActiveTab, setSid
             <div className="mt-auto pt-6 border-t border-white/10 space-y-4">
                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3 overflow-hidden">
                   <div className="size-9 rounded-full bg-slate-500 overflow-hidden relative shrink-0">
-                    <Image src="https://ui-avatars.com/api/?name=Admin&background=006C35&color=fff" alt="Avatar" fill />
+                    <Image src="https://ui-avatars.com/api/?name=Admin&background=006C35&color=fff" alt="Avatar" fill sizes="36px" />
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-xs font-bold truncate">Systems Administrator</span>

@@ -158,7 +158,7 @@ export function Testimonials() {
                     {/* Author */}
                     <div className="flex items-center gap-2 md:gap-4 pt-3 md:pt-8 border-t border-slate-50">
                       <div className="relative size-8 md:size-12 rounded-full overflow-hidden border border-slate-100 shrink-0">
-                        <Image src={item.avatar} alt={item.name} fill className="object-cover" />
+                        <Image src={item.avatar} alt={item.name} fill sizes="48px" className="object-cover" />
                       </div>
                       <div className="min-w-0">
                         <h4 className="font-black text-accent text-xs md:text-sm group-hover:text-primary transition-colors truncate">{item.name}</h4>

@@ -132,6 +132,7 @@ export function ProjectSnippet() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-1000"
                     />
                   </motion.div>

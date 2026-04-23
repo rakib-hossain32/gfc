@@ -158,6 +158,7 @@ export function AboutClient() {
                   src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
                   alt="Boardroom"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                />
                <div className="absolute inset-0 bg-accent/20 mix-blend-multiply" />

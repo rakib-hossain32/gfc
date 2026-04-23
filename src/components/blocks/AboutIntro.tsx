@@ -73,7 +73,7 @@ export function AboutIntro() {
                 <div className="flex -space-x-2.5">
                   {[1,2,3].map(i => (
                     <div key={i} className="size-8 md:size-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden relative">
-                      <Image src={`https://randomuser.me/api/portraits/men/${i+20}.jpg`} alt="Client" fill className="object-cover" />
+                      <Image src={`https://randomuser.me/api/portraits/men/${i+20}.jpg`} alt="Client" fill sizes="40px" className="object-cover" />
                     </div>
                   ))}
                 </div>
@@ -98,6 +98,7 @@ export function AboutIntro() {
                 src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
                 alt="Corporate Meeting"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />

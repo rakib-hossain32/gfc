@@ -1,159 +1,85 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { 
-  ShieldCheck, 
-  Zap, 
-  HardHat, 
-  ArrowRight,
-  Target,
-  BarChart3,
-  Clock
-} from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '../ui/button';
-import Link from "next/link";
-import Image from "next/image";
-
-
-const reasons = [
-  {
-    title: "Unmatched Reliability",
-    desc: "24/7 dedicated support for Riyadh's elite corporate sectors.",
-    icon: ShieldCheck,
-    tag: "Reliability"
-  },
-  {
-    title: "DP Expertise",
-    desc: "100+ technicians for high-complexity energy environments.",
-    icon: Zap,
-    tag: "Technical"
-  },
-  {
-    title: "Safety First",
-    desc: "Strict zero-accident policy with advanced risk management.",
-    icon: HardHat,
-    tag: "Operational"
-  },
-  {
-    title: "Local Excellence",
-    desc: "Deep expertise in Saudi Arabia's unique industrial landscape.",
-    icon: Target,
-    tag: "Strategic"
-  }
-];
 
 export default function WhyChooseUs() {
   return (
-    <section className=" bg-white relative overflow-hidden">
-      {/* Background Micro-details */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #000 1px, transparent 0)`, backgroundSize: '40px 40px' }} 
-      />
-
-      <div className="container px-4 md:px-6 mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-10 md:gap-16 lg:gap-20 items-center">
-          
-          {/* Left: Content Block */}
-          <div className="lg:w-5/12 space-y-8">
+    <section className="relative bg-[#f8f9fa] overflow-hidden min-h-85 flex items-center">
+      {/* Left text content */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        <div className="flex items-center">
+          <div className="w-full lg:w-1/2 py-10 md:py-14">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-3">
-                 <div className="w-10 h-px bg-primary" />
-                 <span className="text-primary text-[10px] font-black uppercase tracking-[0.4em]">The Advantage</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent leading-[1.15]">
-                Why Industry Leaders <br /> 
-                <span className="text-primary">Trust Our Vision.</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
+                Why Choose GFC?
               </h2>
-              <p className="text-muted text-sm leading-relaxed max-w-sm">
-                Engineering operational stability for the Kingdom&#39;s most ambitious projects with precision and technical mastery.
-              </p>
-            </motion.div>
 
-            <div className="grid grid-cols-2 gap-3 md:gap-4 pt-4">
-              <div className="flex items-center gap-3 p-3 md:p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
-                <div className="size-8 md:size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
-                  <Clock className="size-4 md:size-5" />
-                </div>
-                <div>
-                  <p className="text-base md:text-xl font-bold text-accent">12+ Years</p>
-                  <p className="text-[9px] md:text-[10px] font-bold text-muted uppercase tracking-widest leading-tight">Market Experience</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 p-3 md:p-5 rounded-xl border border-slate-50 bg-slate-50/30 group hover:border-primary/20 transition-all duration-500">
-                <div className="size-8 md:size-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
-                  <BarChart3 className="size-4 md:size-5" />
-                </div>
-                <div>
-                  <p className="text-base md:text-xl font-bold text-accent">500+ Projects</p>
-                  <p className="text-[9px] md:text-[10px] font-bold text-muted uppercase tracking-widest leading-tight">Successful Delivery</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 flex justify-start sm:justify-center lg:justify-start">
-              {/* <Link href="/contact">
-                <Button className="h-12 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-primary/20 group">
-                  Partner With Us
-                  <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link> */}
-              <Button asChild className="w-full sm:w-auto h-11 md:h-16 px-8 md:px-10 rounded-full bg-accent text-white hover:bg-primary transition-all duration-300">
-            <Link href="/contact" className="flex items-center justify-center gap-2">
-              Partner With Us <ArrowRight className="size-4 md:size-5" />
-            </Link>
-          </Button>
-            </div>
-          </div>
-
-          {/* Right: Modern Feature Grid (Refined & Compact) */}
-          <div className="lg:w-7/12 grid grid-cols-2 gap-3 md:gap-4">
-            {reasons.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group relative p-4 md:p-8 rounded-xl md:rounded-2xl bg-white border border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-slate-200/40 transition-all duration-500"
-              >
-                <div className="flex justify-between items-start mb-3 md:mb-6">
-                  <div className="size-8 md:size-10 rounded-lg md:rounded-xl bg-slate-50 flex items-center justify-center text-accent group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                    <item.icon className="size-4 md:size-5" />
-                  </div>
-                  <span className="text-[8px] md:text-[9px] font-bold text-muted uppercase tracking-widest px-1.5 md:px-2 py-0.5 md:py-1 bg-slate-50 rounded">
-                    {item.tag}
-                  </span>
-                </div>
-                <h4 className="text-sm md:text-lg font-bold text-accent mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight">{item.title}</h4>
-                <p className="text-[11px] md:text-xs text-muted leading-relaxed font-medium">
-                  {item.desc}
+              <div className="space-y-3 text-gray-500 text-sm leading-relaxed max-w-md mb-6">
+                <p>
+                  We deliver end-to-end facility management and corporate services across Saudi Arabia —
+                  from maintenance and cleaning to manpower supply and construction. Our teams are
+                  trained, vetted, and deployed with precision to meet the demands of commercial,
+                  residential, and industrial clients.
                 </p>
-              </motion.div>
-            ))}
-            
-            {/* Visual Accent Card */}
-            <div className="col-span-2 mt-1 md:mt-2 h-36 md:h-48 rounded-xl md:rounded-2xl overflow-hidden relative shadow-xl">
-              <Image 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" 
-                alt="Corporate Architecture" 
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-r from-accent/90 via-accent/40 to-transparent flex items-center px-6 md:px-10">
-                <div className="space-y-1">
-                  <p className="text-white/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">Official Rating</p>
-                  <p className="text-xl md:text-2xl font-black text-white">Tier-1 Contractor</p>
-                </div>
+                <p>
+                  Every project we take on is backed by a commitment to quality, speed, and
+                  accountability. Property owners, businesses, and government entities trust Golden First
+                  because we show up, we deliver, and we stand behind our work.
+                </p>
               </div>
-            </div>
+
+              <div className="space-y-3">
+                <h3 className="text-base font-bold text-black">
+                  Download Our Profile
+                </h3>
+                <Button
+                  asChild
+                  className="bg-[#0a1128] hover:bg-[#15234d] text-white px-7 h-10 rounded-full text-sm font-medium transition-all shadow-md"
+                >
+                  <Link href="/Profile of Golden First.pdf">
+                    Download Arabic/English
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
           </div>
-          
         </div>
+      </div>
+
+      {/* Right image — absolutely positioned, right side, circular clip */}
+      <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden lg:flex items-center justify-end">
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full h-full"
+        >
+         
+
+          {/* Building image clipped to circle/ellipse */}
+          <div
+            className="absolute inset-0 overflow-hidden"
+            style={{
+              clipPath: 'ellipse(72% 85% at 90% 50%)',
+            }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"
+              alt="Modern Architecture"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

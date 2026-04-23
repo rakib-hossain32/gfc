@@ -124,32 +124,19 @@ export function Header() {
 
             {/* 1. Logo */}
             <div className="flex justify-start">
-              <Link href="/" className="flex items-center gap-4 group relative z-10 w-fit text-left">
+              <Link href="/" className="flex items-center gap-3 group relative z-10 w-fit text-left">
                 <div className={cn(
-                  "bg-primary rounded-xl flex items-center justify-center text-white transition-all duration-500 relative overflow-hidden",
-                  scrolled ? "size-10 scale-95" : "size-12 shadow-primary"
+                  "relative flex items-center justify-center transition-all duration-500 shrink-0",
+                  scrolled ? "h-9 w-auto" : "h-11 w-auto"
                 )}>
-                  <svg viewBox="0 0 32 32" className={cn("transition-all duration-500 group-hover:scale-110", scrolled ? "size-6" : "size-8")} fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 6L8 11V24H12V16H20V24H24V11L16 6Z" fill="currentColor" fillOpacity="0.1" />
-                    <path d="M16 6L8 11V24H12V16H20V24H24V11L16 6Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-                    <rect x="15" y="6" width="2" height="18" fill="currentColor" fillOpacity="0.2" />
-                    <circle cx="16" cy="11" r="2" fill="currentColor" />
-                  </svg>
-                  <div className="absolute inset-0 border border-white/10 rounded-xl" />
-                </div>
-                <div className="flex flex-col">
-                  <div className="flex items-baseline gap-1">
-                    <span className={cn(
-                      "font-black tracking-tighter leading-none text-accent transition-all duration-500",
-                      scrolled ? "text-lg xl:text-xl" : "text-xl xl:text-2xl"
-                    )}>
-                      {settings.siteName.split(' ')[0] || "RIYADH"}
-                    </span>
-                    <div className="size-1.5 rounded-full bg-primary animate-pulse" />
-                  </div>
-                  <span className="text-[8px] xl:text-[9px] font-black tracking-[0.5em] text-primary uppercase leading-none mt-1.5 opacity-80">
-                    {settings.siteName.split(' ').slice(1).join(' ') || "Integrated Excellence"}
-                  </span>
+                  <Image
+                    src="/logo.png"
+                    alt="GFC Logo"
+                    width={scrolled ? 56 : 64}
+                    height={scrolled ? 56 : 64}
+                    className="object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-sm"
+                    priority
+                  />
                 </div>
               </Link>
             </div>

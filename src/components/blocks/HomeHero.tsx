@@ -102,6 +102,8 @@ export function HomeHero() {
                     src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?fm=jpg&q=80&w=600&auto=format&fit=crop"
                     alt="Facility"
                     fill
+                    sizes="(max-width: 768px) 60vw, 0vw"
+                    priority
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-accent/80 via-accent/10 to-transparent" />
@@ -122,6 +124,7 @@ export function HomeHero() {
                       src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400&auto=format&fit=crop"
                       alt="Engineering"
                       fill
+                      sizes="(max-width: 768px) 35vw, 0vw"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-to-br from-primary/70 to-accent/60" />
@@ -135,6 +138,7 @@ export function HomeHero() {
                       src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=400&auto=format&fit=crop"
                       alt="Construction"
                       fill
+                      sizes="(max-width: 768px) 35vw, 0vw"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-accent/70 to-transparent" />
@@ -234,6 +238,7 @@ export function HomeHero() {
                   src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?fm=jpg&q=60&w=3000&auto=format&fit=crop" 
                   alt="Riyadh Corporate District"
                   fill
+                  sizes="(max-width: 1023px) 0vw, 25vw"
                   className="object-cover opacity-90 transition-transform duration-[3s] hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-accent via-transparent to-transparent opacity-80" />
@@ -254,6 +259,7 @@ export function HomeHero() {
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" 
                   alt="Engineering Precision"
                   fill
+                  sizes="(max-width: 1023px) 0vw, 22vw"
                   className="object-cover opacity-50 group-hover:scale-110 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 p-8 xl:p-10 flex flex-col justify-between z-10">

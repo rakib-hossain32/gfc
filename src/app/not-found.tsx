@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/src/components/ui/button";
-import { ArrowLeft, Home, Compass } from "lucide-react";
+import { ArrowLeft, Home } from "lucide-react";
+import Image from "next/image";
 
 export default function NotFound() {
   const router = useRouter();
@@ -36,8 +37,14 @@ export default function NotFound() {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
           >
             <div className="flex flex-col items-center gap-4">
-              <div className="size-20 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-primary mb-4 border border-slate-100">
-                <Compass className="size-10 animate-spin-slow" />
+              <div className="size-24 bg-white rounded-[2.5rem] shadow-2xl flex items-center justify-center p-4 border border-slate-100 overflow-hidden mb-6">
+                <Image
+                  src="/logo.png"
+                  alt="GFC Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-accent tracking-tight">
                 Lost in <span className="text-primary italic">Transition?</span>

@@ -25,6 +25,7 @@ export function EmployeeIdCard({
   const canvasRef                       = useRef<HTMLCanvasElement>(null);
   const [photoDataUrl, setPhotoDataUrl] = useState<string | null>(null);
   const [photoImg, setPhotoImg]         = useState<HTMLImageElement | null>(null);
+  const [logoImg, setLogoImg]           = useState<HTMLImageElement | null>(null);
   const [qrImg, setQrImg]               = useState<HTMLImageElement | null>(null);
   const [canDownload, setCanDownload]   = useState(false);
 
@@ -56,6 +57,13 @@ export function EmployeeIdCard({
     img.onload = () => setPhotoImg(img);
     img.src = photoDataUrl;
   }, [photoDataUrl]);
+
+  /* ── Logo ── */
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setLogoImg(img);
+    img.src = "/logo.png";
+  }, []);
 
   /* ── Draw ────────────────────────────────────────────────────────────── */
   const draw = useCallback(() => {
@@ -113,11 +121,24 @@ export function EmployeeIdCard({
     ctx.fillStyle = gold;
     ctx.fillRect(0, HDR - 6, W, 6);
 
-    /* company name */
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "900 34px Arial Black, Arial, sans-serif";
-    ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("GOLDEN FIRST CONTRACTING", W / 2, 75);
+    /* company logo & name */
+    if (logoImg) {
+      const lw = 80;
+      const lh = 80;
+      ctx.drawImage(logoImg, 50, 45, lw, lh);
+      
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "900 34px Arial Black, Arial, sans-serif";
+      ctx.textAlign = "left"; ctx.textBaseline = "middle";
+      ctx.fillText("GOLDEN FIRST", 145, 72);
+      ctx.font = "700 24px Arial, sans-serif";
+      ctx.fillText("CONTRACTING", 145, 105);
+    } else {
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "900 34px Arial Black, Arial, sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("GOLDEN FIRST CONTRACTING", W / 2, 75);
+    }
 
     ctx.fillStyle = "rgba(201,162,77,0.9)";
     ctx.font = "700 16px Arial, sans-serif";
@@ -210,8 +231,8 @@ export function EmployeeIdCard({
       { label: "Email",       value: email },
       ...(phone       ? [{ label: "Phone",       value: phone }]       : []),
       ...(nationality ? [{ label: "Nationality", value: nationality }] : []),
-      { label: "Company",  value: "Golden First Contracting W.L.L." },
-      { label: "Location", value: "Riyadh, Saudi Arabia" },
+      { label: "Company",  value: "Golden First Contracting" },
+      { label: "Location", value: "Al Jubail, Saudi Arabia" },
     ];
 
     const rowStartY = 576;
@@ -308,10 +329,10 @@ export function EmployeeIdCard({
     ctx.font = "600 16px Arial, sans-serif";
     ctx.letterSpacing = "1.5px";
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText(`ISSUED: ${issueDate}  •  goldenfirstcontracting.com`, W / 2, footerY + 36);
+    ctx.fillText(`ISSUED: ${issueDate}  • gfcont.com`, W / 2, footerY + 36);
     ctx.letterSpacing = "0px";
 
-  }, [name, position, email, phone, nationality, employeeId, avatarInitials, photoImg, qrImg]);
+  }, [name, position, email, phone, nationality, employeeId, avatarInitials, photoImg, qrImg, logoImg]);
 
   useEffect(() => { draw(); }, [draw]);
 

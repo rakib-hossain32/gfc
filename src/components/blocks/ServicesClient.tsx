@@ -6,11 +6,11 @@ import {
   ArrowRight, 
   ChevronRight,
   ShieldCheck,
-  Globe,
-  Zap,
+
   Building2,
   Boxes} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/src/components/ui/button";
 import { SectionHeader } from "@/src/components/ui/section-header";
 import { PageHero } from "@/src/components/ui/page-hero";
@@ -201,14 +201,14 @@ export function ServicesClient() {
       </section>
 
       {/* --- BOTTOM LOGO STRIP --- */}
-      <section className="py-16 sm:py-20 md:py-24 border-t border-slate-100 flex items-center justify-center gap-8 sm:gap-12 md:gap-16 grayscale px-4">
-          <ShieldCheck className="size-6 sm:size-7 md:size-8 text-primary/50" />
-          <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 bg-slate-300 rounded-full" />
-          <Globe className="size-6 sm:size-7 md:size-8 text-primary/50" />
-          <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 bg-slate-300 rounded-full" />
-          <Zap className="size-6 sm:size-7 md:size-8 text-primary/50" />
-          <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 bg-slate-300 rounded-full" />
-          <Building2 className="size-6 sm:size-7 md:size-8 text-primary/50" />
+      <section className="py-16 sm:py-20 md:py-24 border-t border-slate-50 flex items-center justify-center gap-6 sm:gap-10 md:gap-16 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 px-4">
+          <ShieldCheck className="size-6 sm:size-7 md:size-8 text-primary" />
+          <div className="h-px w-8 sm:w-12 bg-slate-200" />
+          <div className="shrink-0">
+             <Image src="/logo.png" alt="GFC Logo" width={40} height={40} className="object-contain" />
+          </div>
+          <div className="h-px w-8 sm:w-12 bg-slate-200" />
+          <Building2 className="size-6 sm:size-7 md:size-8 text-primary" />
       </section>
     </main>
   );

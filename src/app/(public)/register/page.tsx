@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Mail, Lock, ArrowRight, Eye, EyeOff, Loader2, User, UserPlus, AlertCircle, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { Button } from "@/src/components/ui/button"
@@ -57,8 +58,14 @@ export default function RegisterPage() {
       >
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex size-12 items-center justify-center rounded-2xl bg-primary/10 mb-4">
-            <UserPlus className="size-5 text-primary" />
+          <div className="inline-flex size-16 items-center justify-center rounded-2xl bg-white shadow-sm border border-slate-100 mb-6 p-2 overflow-hidden">
+            <Image
+              src="/logo.png"
+              alt="GFC Logo"
+              width={48}
+              height={48}
+              className="object-contain"
+            />
           </div>
           <h1 className="text-2xl font-black text-accent tracking-tight">Create account</h1>
           <p className="text-sm text-muted mt-1">Fill in your details to get started</p>
